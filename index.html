@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrlandoJets — Aviation Photography & Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:       '#0D2B6E',
+            'navy-mid': '#2060A8',
+            'navy-dark':'#071B47',
+            brand:      '#1B72BE',
+            sky:        '#4CB8E0',
+            ice:        '#D6EAF8',
+            cloud:      '#F4F7FB',
+          },
+          fontFamily: {
+            head: ['Barlow', 'sans-serif'],
+            body: ['Nunito Sans', 'sans-serif'],
+          },
+          letterSpacing: {
+            tight2: '-0.02em',
+            tight3: '-0.03em',
+            wide4:  '0.25em',
+            wide3:  '0.18em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: #F4F7FB; color: #111827; overflow-x: hidden; }
+
+    /* ─── NAV ──────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 40px; height: 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: transparent;
+      transition: background 300ms ease, box-shadow 300ms ease;
+    }
+    #nav.scrolled {
+      background: rgba(7,27,71,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(76,184,224,0.12);
+    }
+    .nav-link {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .nav-link:hover { color: #4CB8E0; }
+    .nav-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: #4CB8E0; color: #fff;
+      padding: 10px 22px; border-radius: 4px;
+      text-decoration: none;
+      transition: background 200ms ease, transform 120ms ease;
+    }
+    .nav-cta:hover { background: #3aa5cc; transform: translateY(-1px); }
+    .nav-cta:active { transform: translateY(0); }
+
+    /* Hamburger (mobile only) */
+    #nav-hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; color: #fff; line-height: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #nav-mobile-menu {
+      display: none; flex-direction: column;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(7,27,71,0.98); backdrop-filter: blur(16px);
+      padding: 16px 28px 28px;
+      z-index: 99;
+      border-top: 1px solid rgba(76,184,224,0.12);
+    }
+    #nav-mobile-menu.open { display: flex; }
+    .nav-mobile-link {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: color 200ms ease;
+    }
+    .nav-mobile-link:hover { color: #4CB8E0; }
+    .nav-mobile-cta {
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: #4CB8E0; color: #fff;
+      padding: 14px 24px; border-radius: 4px;
+      text-decoration: none; text-align: center;
+      margin-top: 20px;
+      transition: background 200ms ease;
+    }
+    .nav-mobile-cta:hover { background: #3aa5cc; }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      overflow: hidden;
+      background: #071B47;
+      padding: 0 80px;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 50%;
+      opacity: 0.4;
+    }
+    .hero-grad {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(100deg, rgba(7,27,71,0.97) 30%, rgba(7,27,71,0.65) 60%, rgba(7,27,71,0.25) 100%),
+        linear-gradient(to top, rgba(7,27,71,0.95) 0%, transparent 50%);
+    }
+    .hero-glow-1 {
+      position: absolute; bottom: -120px; right: 10%;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,114,190,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; top: -80px; right: 25%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,184,224,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase; color: #4CB8E0;
+      margin-bottom: 24px;
+    }
+    .hero-tag::before {
+      content: ''; display: block;
+      width: 32px; height: 1.5px; background: #4CB8E0;
+    }
+    .hero-h1 {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(42px, 6.5vw, 88px);
+      font-weight: 900; line-height: 0.97;
+      letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 28px;
+    }
+    .hero-h1 em { font-style: normal; color: #4CB8E0; }
+    .hero-sub {
+      font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.6);
+      max-width: 560px; margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: #0D2B6E; color: #fff;
+      padding: 15px 32px; border-radius: 4px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      transition: background 200ms ease, transform 120ms ease;
+      box-shadow: 0 8px 32px rgba(13,43,110,0.4), 0 2px 8px rgba(13,43,110,0.3);
+    }
+    .btn-primary:hover { background: #0a2258; transform: translateY(-2px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-outline-w {
+      font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: transparent; color: #fff;
+      padding: 13px 30px; border-radius: 4px; border: 2px solid rgba(255,255,255,0.35);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      transition: border-color 200ms ease, color 200ms ease, transform 120ms ease;
+    }
+    .btn-outline-w:hover { border-color: #4CB8E0; color: #4CB8E0; transform: translateY(-2px); }
+    .btn-outline-w:active { transform: translateY(0); }
+
+    .scroll-ind {
+      position: absolute; bottom: 36px; left: 80px; z-index: 1;
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.35);
+    }
+    .scroll-line { width: 48px; height: 1px; background: rgba(255,255,255,0.2); }
+
+    .hero-stats {
+      position: absolute; bottom: 0; right: 0; z-index: 1;
+      display: flex;
+    }
+    .stat-item {
+      padding: 20px 36px;
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-num {
+      font-family: 'Barlow', sans-serif; font-size: 28px; font-weight: 800;
+      letter-spacing: -0.02em; color: #fff; line-height: 1;
+    }
+    .stat-num span { color: #4CB8E0; }
+    .stat-label {
+      font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-top: 4px;
+    }
+
+    /* ─── SECTION SHARED ──────────────────────────────── */
+    .section { padding: 100px 80px; }
+    .section-tag {
+      font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: #4CB8E0;
+      margin-bottom: 10px;
+    }
+    .section-h2 {
+      font-family: 'Barlow', sans-serif; font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800; letter-spacing: -0.02em;
+      color: #0D2B6E; line-height: 1.05;
+    }
+    .section-h2 em { font-style: normal; color: #1B72BE; }
+    .section-lead {
+      font-size: 16px; line-height: 1.75; color: #6B7280;
+      max-width: 520px; margin-top: 16px;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────── */
+    #services { background: #fff; }
+    .service-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+      margin-top: 64px; border-radius: 8px; overflow: hidden;
+    }
+    .service-card {
+      background: #F4F7FB; padding: 44px 36px;
+      transition: background 250ms ease;
+      position: relative; overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: #4CB8E0;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 300ms ease;
+    }
+    .service-card:hover { background: #fff; }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-icon { width: 48px; height: 48px; margin-bottom: 24px; }
+    .service-title {
+      font-family: 'Barlow', sans-serif; font-size: 18px; font-weight: 700;
+      color: #0D2B6E; letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .service-desc { font-size: 14px; line-height: 1.75; color: #6B7280; }
+
+    /* ─── GALLERY ─────────────────────────────────────── */
+    #gallery { background: #071B47; padding: 100px 80px; }
+    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .gal-item {
+      position: relative; overflow: hidden; border-radius: 4px;
+      background: #0D2B6E;
+    }
+    .gal-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 400ms ease; display: block;
+    }
+    .gal-item:hover img { transform: scale(1.04); }
+    .gal-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(7,27,71,0.8) 0%, transparent 50%);
+      opacity: 0; transition: opacity 300ms ease;
+    }
+    .gal-item:hover .gal-overlay { opacity: 1; }
+    .gal-label {
+      position: absolute; bottom: 16px; left: 16px;
+      font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.9);
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+    .gal-item:hover .gal-label { opacity: 1; transform: translateY(0); }
+    .g1 { grid-column: span 5; height: 340px; }
+    .g2 { grid-column: span 4; height: 340px; }
+    .g3 { grid-column: span 3; height: 340px; }
+    .g4 { grid-column: span 3; height: 260px; }
+    .g5 { grid-column: span 5; height: 260px; }
+    .g6 { grid-column: span 4; height: 260px; }
+    .view-all {
+      font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #4CB8E0; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(76,184,224,0.3);
+      padding-bottom: 2px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .view-all:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+    /* ─── PACKAGES ────────────────────────────────────── */
+    #packages { background: #fff; }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+    .pkg-card {
+      border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;
+      transition: box-shadow 250ms ease, transform 250ms ease;
+    }
+    .pkg-card:hover {
+      box-shadow: 0 20px 60px rgba(13,43,110,0.12), 0 4px 16px rgba(13,43,110,0.08);
+      transform: translateY(-4px);
+    }
+    .pkg-card.featured {
+      border-color: #1B72BE;
+      box-shadow: 0 8px 32px rgba(27,114,190,0.18), 0 2px 8px rgba(27,114,190,0.12);
+    }
+    .pkg-card.featured:hover {
+      box-shadow: 0 24px 64px rgba(27,114,190,0.22), 0 6px 20px rgba(27,114,190,0.15);
+      transform: translateY(-6px);
+    }
+    .pkg-header { padding: 32px 32px 24px; }
+    .pkg-badge {
+      display: inline-block;
+      font-family: 'Barlow', sans-serif; font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      background: #D6EAF8; color: #1B72BE;
+      padding: 4px 10px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .pkg-card.featured .pkg-badge { background: #1B72BE; color: #fff; }
+    .pkg-name {
+      font-family: 'Barlow', sans-serif; font-size: 20px; font-weight: 800;
+      color: #0D2B6E; letter-spacing: -0.01em;
+    }
+    .pkg-price {
+      font-family: 'Barlow', sans-serif; font-size: 42px; font-weight: 900;
+      letter-spacing: -0.03em; color: #0D2B6E; line-height: 1;
+      margin-top: 16px;
+    }
+    .pkg-price sup { font-size: 22px; font-weight: 700; vertical-align: super; line-height: 0; }
+    .pkg-price span { font-size: 15px; font-weight: 400; color: #9CA3AF; letter-spacing: 0; }
+    .pkg-divider { height: 1px; background: #E2E8F0; margin: 0 32px; }
+    .pkg-body { padding: 24px 32px 32px; }
+    .pkg-desc { font-size: 14px; line-height: 1.7; color: #6B7280; margin-bottom: 24px; }
+    .pkg-features { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px; }
+    .pkg-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #374151; line-height: 1.5;
+    }
+    .pkg-features li::before {
+      content: '';
+      flex-shrink: 0; margin-top: 5px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23D6EAF8'/%3E%3Cpath d='M4.5 8l2.5 2.5 4.5-4.5' stroke='%231B72BE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .pkg-card.featured .pkg-features li::before {
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='%231B72BE'/%3E%3Cpath d='M4.5 8l2.5 2.5 4.5-4.5' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .pkg-btn {
+      display: block; width: 100%;
+      font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-align: center; text-decoration: none;
+      padding: 13px 24px; border-radius: 4px;
+      background: #F4F7FB; color: #0D2B6E;
+      border: 1.5px solid #E2E8F0;
+      transition: background 200ms ease, border-color 200ms ease, transform 120ms ease;
+    }
+    .pkg-btn:hover { background: #E2E8F0; transform: translateY(-1px); }
+    .pkg-btn:active { transform: translateY(0); }
+    .pkg-btn.featured-btn { background: #0D2B6E; color: #fff; border-color: #0D2B6E; }
+    .pkg-btn.featured-btn:hover { background: #0a2258; border-color: #0a2258; }
+
+    /* ─── WHY US ──────────────────────────────────────── */
+    #why { background: #F4F7FB; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .why-img-wrap { position: relative; }
+    .why-img { width: 100%; border-radius: 8px; display: block; object-fit: cover; }
+    .why-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: #0D2B6E; color: #fff; border-radius: 8px;
+      padding: 20px 28px;
+      box-shadow: 0 16px 48px rgba(13,43,110,0.3);
+    }
+    .why-badge-num {
+      font-family: 'Barlow', sans-serif; font-size: 36px; font-weight: 900;
+      letter-spacing: -0.02em; color: #fff; line-height: 1;
+    }
+    .why-badge-num em { font-style: normal; color: #4CB8E0; }
+    .why-badge-label {
+      font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-top: 4px;
+    }
+    .why-points { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+    .why-point { display: flex; gap: 20px; }
+    .why-point-icon {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px;
+      background: #fff; border: 1px solid #E2E8F0;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(13,43,110,0.06);
+    }
+    .why-point-icon svg { width: 20px; height: 20px; }
+    .why-point-text h4 {
+      font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700;
+      color: #0D2B6E; margin-bottom: 4px;
+    }
+    .why-point-text p { font-size: 14px; line-height: 1.7; color: #6B7280; }
+
+    /* ─── CTA STRIP ───────────────────────────────────── */
+    #cta-strip {
+      background: #0D2B6E; padding: 100px 80px;
+      position: relative; overflow: hidden;
+    }
+    #cta-strip::before {
+      content: '';
+      position: absolute; top: -200px; right: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,184,224,0.1) 0%, transparent 70%);
+    }
+    #cta-strip::after {
+      content: '';
+      position: absolute; bottom: -150px; left: 20%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,114,190,0.15) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; }
+    .cta-text-tag {
+      font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase; color: #4CB8E0;
+      margin-bottom: 12px;
+    }
+    .cta-h2 {
+      font-family: 'Barlow', sans-serif; font-size: clamp(28px, 4vw, 52px);
+      font-weight: 900; letter-spacing: -0.02em; color: #fff; line-height: 1;
+    }
+    .cta-h2 em { font-style: normal; color: #4CB8E0; }
+    .cta-sub { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-top: 14px; max-width: 420px; }
+    .cta-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .btn-white {
+      font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: #fff; color: #0D2B6E;
+      padding: 15px 36px; border-radius: 4px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background 200ms ease, transform 120ms ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { background: #F4F7FB; transform: translateY(-2px); }
+    .btn-white:active { transform: translateY(0); }
+    .btn-ghost-w {
+      font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: transparent; color: rgba(255,255,255,0.6);
+      padding: 13px 34px; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.2);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      transition: color 200ms ease, border-color 200ms ease, transform 120ms ease;
+    }
+    .btn-ghost-w:hover { color: #fff; border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+    .btn-ghost-w:active { transform: translateY(0); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer { background: #071B47; padding: 64px 80px 40px; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand-desc {
+      font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.4);
+      margin-top: 16px; max-width: 280px;
+    }
+    .footer-col-title {
+      font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .footer-links a:hover { color: #4CB8E0; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 32px;
+    }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.03em; }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: rgba(255,255,255,0.5);
+      transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+    }
+    .social-link:hover { background: rgba(76,184,224,0.15); color: #4CB8E0; border-color: rgba(76,184,224,0.3); }
+    .social-link svg { width: 16px; height: 16px; }
+
+    /* ─── PORTFOLIO SLIDESHOW ─────────────────────────── */
+    #portfolio { background: #071B47; padding: 100px 0 80px; }
+    .portfolio-header { padding: 0 80px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .filter-btn {
+      font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: transparent; color: rgba(255,255,255,0.4);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      padding: 8px 16px; border-radius: 4px; cursor: pointer;
+      transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+    .filter-btn:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+    .filter-btn.active { color: #4CB8E0; border-color: #4CB8E0; background: rgba(76,184,224,0.08); }
+    .slide-stage { position: relative; height: 580px; overflow: hidden; }
+    .portfolio-slide {
+      position: absolute; inset: 0;
+      opacity: 0; pointer-events: none;
+      transition: opacity 600ms ease;
+    }
+    .portfolio-slide.active { opacity: 1; pointer-events: auto; }
+    .portfolio-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .slide-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(7,27,71,0.94) 0%, rgba(7,27,71,0.7) 40%, rgba(7,27,71,0.2) 70%, transparent 100%);
+    }
+    .slide-info { position: absolute; bottom: 60px; left: 80px; max-width: 480px; }
+    .slide-cat {
+      font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase; color: #4CB8E0;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+    }
+    .slide-cat::before { content: ''; display: block; width: 28px; height: 1.5px; background: #4CB8E0; }
+    .slide-title {
+      font-family: 'Barlow', sans-serif; font-size: 36px; font-weight: 800;
+      color: #fff; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 12px;
+    }
+    .slide-meta { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .slide-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: rgba(255,255,255,0.7);
+      transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+      z-index: 2;
+    }
+    .slide-arrow:hover { background: rgba(76,184,224,0.2); color: #4CB8E0; border-color: #4CB8E0; }
+    .slide-arrow svg { width: 20px; height: 20px; }
+    .arrow-prev { left: 20px; }
+    .arrow-next { right: 20px; }
+    .slide-counter {
+      position: absolute; top: 24px; right: 80px; z-index: 2;
+      font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; color: rgba(255,255,255,0.35);
+    }
+    .slide-counter span { color: #4CB8E0; }
+    .thumb-strip { display: flex; gap: 10px; padding: 16px 80px 0; overflow-x: auto; scrollbar-width: none; }
+    .thumb-strip::-webkit-scrollbar { display: none; }
+    .thumb-item {
+      flex: 0 0 160px; height: 100px; position: relative; cursor: pointer;
+      border-radius: 4px; overflow: hidden;
+      border: 2px solid transparent;
+      transition: border-color 200ms ease, opacity 200ms ease;
+      opacity: 0.5;
+    }
+    .thumb-item.active { border-color: #4CB8E0; opacity: 1; }
+    .thumb-item:hover { opacity: 0.8; }
+    .thumb-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(7,27,71,0.9), transparent);
+      padding: 8px 10px 6px;
+      font-family: 'Barlow', sans-serif; font-size: 9px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.8);
+    }
+    .slide-dots { display: flex; justify-content: center; gap: 8px; padding: 24px 80px 0; }
+    .slide-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.2); cursor: pointer;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .slide-dot.active { background: #4CB8E0; transform: scale(1.4); }
+
+    /* ─── AIRLINE PORTFOLIO ───────────────────────────── */
+    #airline { background: #0D2B6E; padding: 100px 0 80px; }
+    .airline-header { padding: 0 80px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: flex-end; }
+
+    /* ─── NOISE LAYER ─────────────────────────────────── */
+    .noise-layer {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─── MOBILE RESPONSIVE ───────────────────────────── */
+    @media (max-width: 900px) {
+      /* Nav */
+      #nav { padding: 0 20px; height: 72px; }
+      #nav-links { display: none !important; }
+      #nav-hamburger { display: flex; }
+
+      /* Hero */
+      #hero { padding: 80px 24px 0; justify-content: center; }
+      .hero-content { max-width: 100%; }
+      .hero-h1 { font-size: clamp(36px, 8vw, 60px); }
+      .hero-sub { font-size: 15px; max-width: 100%; }
+      .scroll-ind { left: 24px; bottom: 20px; }
+      .hero-stats {
+        position: relative; bottom: auto; right: auto;
+        margin-top: 40px; flex-wrap: wrap;
+        background: rgba(7,27,71,0.5);
+        border-top: 1px solid rgba(255,255,255,0.08);
+        width: 100%;
+      }
+      .stat-item { flex: 1 1 auto; padding: 14px 16px; border-left: none; border-right: 1px solid rgba(255,255,255,0.08); }
+      .stat-item:last-child { border-right: none; }
+      .stat-num { font-size: 22px; }
+
+      /* Sections */
+      .section { padding: 64px 24px; }
+
+      /* Services */
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 32px 24px; }
+
+      /* Gallery */
+      #gallery { padding: 64px 24px; }
+      .gallery-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .g1 { grid-column: 1 / -1; height: 220px; }
+      .g2 { grid-column: span 1; height: 180px; }
+      .g3 { grid-column: span 1; height: 180px; }
+      .g4 { grid-column: span 1; height: 160px; }
+      .g5 { grid-column: span 1; height: 160px; }
+      .g6 { grid-column: 1 / -1; height: 180px; }
+
+      /* Portfolio slideshow */
+      #portfolio { padding: 64px 0 48px; }
+      .portfolio-header { padding: 0 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+      .slide-stage { height: 360px; }
+      .slide-info { left: 24px; bottom: 24px; max-width: calc(100% - 96px); }
+      .slide-title { font-size: 22px; }
+      .slide-meta { font-size: 11px; }
+      .slide-counter { right: 24px; top: 16px; }
+      #pf-filters { flex-wrap: wrap; gap: 6px; }
+      .filter-btn { font-size: 10px; padding: 7px 12px; }
+      .thumb-strip { padding: 12px 24px 0; }
+      .thumb-item { flex: 0 0 110px; height: 68px; }
+      .slide-dots { padding: 14px 24px 0; }
+
+      /* Airline portfolio */
+      #airline { padding: 64px 0 48px; }
+      .airline-header { padding: 0 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+
+      /* Packages */
+      .packages-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+
+      /* Why Us */
+      .why-grid { grid-template-columns: 1fr; gap: 48px; }
+      .why-img-wrap { padding-bottom: 28px; }
+      .why-badge { right: 0; bottom: 0; padding: 14px 20px; }
+      .why-badge-num { font-size: 26px; }
+
+      /* CTA */
+      #cta-strip { padding: 64px 24px; }
+      .cta-inner { flex-direction: column; gap: 36px; align-items: flex-start; }
+      .btn-white { width: 100%; justify-content: center; }
+      .btn-ghost-w { width: 100%; justify-content: center; }
+
+      /* Footer */
+      footer { padding: 48px 24px 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-outline-w { width: 100%; justify-content: center; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .g1, .g2, .g3, .g4, .g5, .g6 { grid-column: span 1; height: 200px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .slide-stage { height: 300px; }
+      .slide-title { font-size: 18px; }
+      .slide-cat { font-size: 9px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── NAVIGATION ──────────────────────────────────── -->
+<nav id="nav">
+  <a href="#hero" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="brand_assets/full-logo_19.png" alt="OrlandoJets" id="nav-logo"
+         style="height:52px; width:auto; display:block;" />
+  </a>
+  <div id="nav-links" style="display:flex; align-items:center; gap:32px;">
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#gallery" class="nav-link">Gallery</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#airline" class="nav-link">Airlines</a>
+    <a href="#packages" class="nav-link">Packages</a>
+    <a href="#why" class="nav-link">About</a>
+    <a href="#cta-strip" class="nav-cta">Book a Shoot</a>
+  </div>
+  <button id="nav-hamburger" aria-label="Open menu">
+    <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M3 6h18M3 12h18M3 18h18"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div id="nav-mobile-menu">
+  <a href="#services" class="nav-mobile-link">Services</a>
+  <a href="#gallery" class="nav-mobile-link">Gallery</a>
+  <a href="#portfolio" class="nav-mobile-link">Portfolio</a>
+  <a href="#airline" class="nav-mobile-link">Airlines</a>
+  <a href="#packages" class="nav-mobile-link">Packages</a>
+  <a href="#why" class="nav-mobile-link">About</a>
+  <a href="#cta-strip" class="nav-mobile-cta">Book a Shoot</a>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft at golden hour" class="hero-img" />
+    <div class="hero-grad"></div>
+  </div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="noise-layer"></div>
+
+  <div style="position:absolute; right:-40px; top:50%; transform:translateY(-50%); z-index:0; pointer-events:none; user-select:none;">
+    <span style="font-family:'Barlow',sans-serif; font-size:clamp(280px,30vw,420px); font-weight:900; letter-spacing:-0.05em; color:rgba(76,184,224,0.04); line-height:1; white-space:nowrap;">OJ</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Aviation Photography &amp; Media</div>
+    <h1 class="hero-h1">
+      Where Aviation Meets<br />
+      <em>Visual Storytelling.</em>
+    </h1>
+    <p class="hero-sub">
+      Premium aviation photography and media for flight schools, FBOs, charter operators, aircraft owners, and aviation brands.
+    </p>
+    <div class="hero-actions">
+      <a href="#packages" class="btn-primary">
+        Book Your Shoot
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#gallery" class="btn-outline-w">
+        View Gallery
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="7" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 11l3-3 3 3 3-3 3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">500<span>+</span></div>
+      <div class="stat-label">Shoots Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">40<span>+</span></div>
+      <div class="stat-label">Airports Covered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12<span>K+</span></div>
+      <div class="stat-label">Images Delivered</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ──────────────────────────────────────── -->
+<section id="services" class="section">
+  <div class="section-tag">What We Do</div>
+  <h2 class="section-h2">Professional Aviation<br /><em>Photography & Media</em></h2>
+  <p class="section-lead">From the runway to the ramp, we document every angle with precision equipment and a passion for aviation that shows in every frame.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 24Q3 22 6 21.5L34 21Q42 21 45 23.5Q42 26 34 27L6 27Q3 26 3 24Z"/>
+        <path d="M45 23.5Q47 23.5 47 24Q47 24.5 45 24.5"/>
+        <path d="M20 21.5L4 12L6.5 11.5L22 21.5"/>
+        <path d="M20 27L4 36L6.5 36.5L22 27"/>
+        <path d="M9 30Q8.5 33.5 14 33.5Q14 30 9 30Z" stroke="#4CB8E0" stroke-width="1.5"/>
+        <path d="M15 30.5Q14.5 33.5 19.5 33.5Q19.5 30.5 15 30.5Z" stroke="#4CB8E0" stroke-width="1.3"/>
+        <path d="M5 21.5L2 13L5 13L7.5 21.5"/>
+        <path d="M4.5 23L0 20.5L0 23"/>
+        <path d="M4.5 25L0 27.5L0 25"/>
+      </svg>
+      <div class="service-title">Commercial Aviation</div>
+      <p class="service-desc">Full editorial packages for commercial airliners — departure sequences, gate approaches, runway rolls, and livery detail shots that tell a carrier's visual story.</p>
+    </div>
+
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 24Q2 22.5 5 22L38 21.5Q44 21.5 46 23.5Q44 25.5 38 26L5 26.5Q2 25.5 2 24Z"/>
+        <path d="M46 23.5Q48 23.5 48 24Q48 24.5 46 24.5"/>
+        <path d="M16 22.5L2 15L4.5 14L18 22.5"/>
+        <path d="M16 25.5L2 33.5L4.5 34.5L18 25.5"/>
+        <path d="M2 15L0 10"/>
+        <path d="M2 33.5L0 38.5"/>
+        <path d="M37 21.5L34 11.5L37 11.5L39.5 21.5"/>
+        <path d="M39 23.5L45 20.5L45 23.5"/>
+        <path d="M35 22.5L35 26Q38 27 41 26L41 22.5Q38 21.5 35 22.5Z" stroke="#4CB8E0" stroke-width="1.5"/>
+      </svg>
+      <div class="service-title">Private Jets &amp; Charter</div>
+      <p class="service-desc">Luxury aircraft portraiture for operators, brokers, and owners. Exterior beauty shots, ramp sessions, and marketing-ready image delivery.</p>
+    </div>
+
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="28" width="40" height="14" rx="2"/>
+        <path d="M8 28V20Q8 18 10 18L38 18Q40 18 40 20V28"/>
+        <path d="M16 18V12Q16 10 18 10H30Q32 10 32 12V18"/>
+        <path d="M24 10V6"/>
+        <line x1="4" y1="35" x2="44" y2="35" stroke-width="1.4"/>
+        <rect x="10" y="30" width="6" height="3" rx="0.5" stroke="#4CB8E0" stroke-width="1.5"/>
+        <rect x="21" y="30" width="6" height="3" rx="0.5" stroke="#4CB8E0" stroke-width="1.5"/>
+        <rect x="32" y="30" width="6" height="3" rx="0.5" stroke="#4CB8E0" stroke-width="1.5"/>
+      </svg>
+      <div class="service-title">FBOs &amp; Airports</div>
+      <p class="service-desc">Architectural and facility photography for FBOs, terminals, pilot lounges, hangars, and airport infrastructure — professional imagery built for marketing and real estate.</p>
+    </div>
+
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="7" width="40" height="34" rx="2.5"/>
+        <rect x="9" y="12" width="30" height="24" rx="1.5" stroke="#4CB8E0" stroke-width="1.5"/>
+        <path d="M9 28Q17 23.5 28 27Q33 29 39 25" stroke="#0D2B6E" stroke-width="1.3"/>
+        <path d="M17 21L22 19L24.5 20L22 23Z" fill="#0D2B6E" stroke="none"/>
+        <path d="M19 21L16.5 18L18 18L20 21"/>
+        <path d="M19 21.5L16.5 25L18 25L20 21.5"/>
+        <path d="M23.5 20L25.5 18.5L25.5 20" stroke-width="1.3"/>
+        <path d="M16 7Q24 3 32 7"/>
+      </svg>
+      <div class="service-title">Air Shows &amp; Events</div>
+      <p class="service-desc">High-speed capture of aerobatic performances, formation flying, and warbird displays. We specialize in panning shots that freeze the action beautifully.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ────────────────────────────────────────── -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="section-tag" style="color:#4CB8E0;">Featured Work</div>
+      <h2 class="section-h2" style="color:#fff;">Every Frame<br /><em>Tells the Story</em></h2>
+    </div>
+    <a href="#portfolio" class="view-all">
+      View Full Portfolio
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gal-item g1">
+      <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft golden hour" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">In Flight · Golden Hour</div>
+    </div>
+    <div class="gal-item g2">
+      <img src="Portfolio/IMG_3947.jpg" alt="Gulfstream portrait on the ramp" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Private Jet · Ramp Portrait</div>
+    </div>
+    <div class="gal-item g3">
+      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunset" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">In Flight · Sunset Silhouette</div>
+    </div>
+    <div class="gal-item g4">
+      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at NetJets facility" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Private Jet · Hangar</div>
+    </div>
+    <div class="gal-item g5">
+      <img src="Portfolio/IMG_3011.jpg" alt="Private jet fleet on mountain ramp" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Private Jets · Mountain Ramp</div>
+    </div>
+    <div class="gal-item g6">
+      <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin jet in hangar" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Private Jet · Hangar Interior</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PORTFOLIO SLIDESHOW ──────────────────────────── -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-tag" style="color:#4CB8E0;">Portfolio</div>
+      <h2 class="section-h2" style="color:#fff;">Selected<br /><em>Work</em></h2>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;" id="pf-filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="private">Private Jets</button>
+        <button class="filter-btn" data-cat="inflight">In Flight</button>
+        <button class="filter-btn" data-cat="facilities">Facilities</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-stage" id="slide-stage">
+    <div class="portfolio-slide active" data-cat="inflight">
+      <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft at golden hour" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">In Flight</div>
+        <div class="slide-title">Twin-Engine<br />Sunset Departure</div>
+        <div class="slide-meta">Air-to-Air Session &nbsp;·&nbsp; Canon R7 &nbsp;·&nbsp; Golden Hour</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="inflight">
+      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at dusk" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">In Flight</div>
+        <div class="slide-title">Silhouette<br />at Dusk</div>
+        <div class="slide-meta">Air-to-Air &nbsp;·&nbsp; Twin-Engine Piston &nbsp;·&nbsp; Sunset</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="private">
+      <img src="Portfolio/IMG_3947.jpg" alt="Gulfstream nose portrait on ramp" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Private Jets</div>
+        <div class="slide-title">Gulfstream<br />Ramp Portrait</div>
+        <div class="slide-meta">Exterior Package &nbsp;·&nbsp; FBO Ramp &nbsp;·&nbsp; Full Detail</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="private">
+      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at NetJets facility" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Private Jets</div>
+        <div class="slide-title">Gulfstream at the<br />NetJets Facility</div>
+        <div class="slide-meta">Hangar &amp; Ramp &nbsp;·&nbsp; Fleet Photography &nbsp;·&nbsp; Full Day</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="private">
+      <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin Gulfstream in hangar" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Private Jets</div>
+        <div class="slide-title">Large-Cabin Jet<br />Hangar Portrait</div>
+        <div class="slide-meta">Gulfstream &nbsp;·&nbsp; Interior Hangar Session &nbsp;·&nbsp; Clean Light</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="private">
+      <img src="Portfolio/IMG_3011.jpg" alt="Private jet fleet on mountain ramp" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Private Jets</div>
+        <div class="slide-title">Fleet on the<br />Mountain Ramp</div>
+        <div class="slide-meta">Multiple Aircraft &nbsp;·&nbsp; Mountain Airport &nbsp;·&nbsp; Wide Ramp</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="facilities">
+      <img src="Portfolio/IMG_3951.jpg" alt="Executive FBO terminal lounge" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Aviation Facilities</div>
+        <div class="slide-title">Executive FBO<br />Terminal Lounge</div>
+        <div class="slide-meta">Commercial Interior Photography &nbsp;·&nbsp; Aviation Facility</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="facilities">
+      <img src="Portfolio/IMG_3909.jpg" alt="Airport hangar exterior" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Aviation Facilities</div>
+        <div class="slide-title">Airport Hangar<br />Exterior</div>
+        <div class="slide-meta">Architectural Aviation Photography &nbsp;·&nbsp; FBO Documentation</div>
+      </div>
+    </div>
+    <div class="portfolio-slide" data-cat="facilities">
+      <img src="Portfolio/IMG_3043.jpg" alt="New aviation hangar facility" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Aviation Facilities</div>
+        <div class="slide-title">New Aviation<br />Hangar Facility</div>
+        <div class="slide-meta">Facility Documentation &nbsp;·&nbsp; Architectural Exterior</div>
+      </div>
+    </div>
+
+    <button class="slide-arrow arrow-prev" id="arrow-prev" aria-label="Previous slide">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4l-6 6 6 6"/></svg>
+    </button>
+    <button class="slide-arrow arrow-next" id="arrow-next" aria-label="Next slide">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>
+    </button>
+    <div class="slide-counter" id="slide-counter"><span>01</span> / 09</div>
+  </div>
+
+  <div class="thumb-strip" id="thumb-strip">
+    <div class="thumb-item active" data-index="0"><img src="Portfolio/IMG_3661.jpg" alt="Twin-Engine Sunset" /><div class="thumb-label">In Flight</div></div>
+    <div class="thumb-item" data-index="1"><img src="Portfolio/IMG_3671.jpg" alt="Silhouette Dusk" /><div class="thumb-label">In Flight</div></div>
+    <div class="thumb-item" data-index="2"><img src="Portfolio/IMG_3947.jpg" alt="Gulfstream Ramp" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="3"><img src="Portfolio/IMG_3941.jpg" alt="NetJets Facility" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="4"><img src="Portfolio/IMG_3943.jpg" alt="Hangar Portrait" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="5"><img src="Portfolio/IMG_3011.jpg" alt="Mountain Ramp" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="6"><img src="Portfolio/IMG_3951.jpg" alt="FBO Lounge" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="7"><img src="Portfolio/IMG_3909.jpg" alt="Hangar Exterior" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="8"><img src="Portfolio/IMG_3043.jpg" alt="New Hangar" /><div class="thumb-label">Facilities</div></div>
+  </div>
+
+  <div class="slide-dots" id="slide-dots">
+    <div class="slide-dot active" data-index="0"></div>
+    <div class="slide-dot" data-index="1"></div>
+    <div class="slide-dot" data-index="2"></div>
+    <div class="slide-dot" data-index="3"></div>
+    <div class="slide-dot" data-index="4"></div>
+    <div class="slide-dot" data-index="5"></div>
+    <div class="slide-dot" data-index="6"></div>
+    <div class="slide-dot" data-index="7"></div>
+    <div class="slide-dot" data-index="8"></div>
+  </div>
+</section>
+
+<!-- ─── AIRLINE PORTFOLIO ─────────────────────────────── -->
+<section id="airline">
+  <div class="airline-header">
+    <div>
+      <div class="section-tag" style="color:#4CB8E0;">Airline Portfolio</div>
+      <h2 class="section-h2" style="color:#fff;">Commercial Airline<br /><em>Photography</em></h2>
+    </div>
+    <div style="text-align:right; max-width:300px;">
+      <p style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.65;">Major US carriers and international operators — takeoffs, landings, taxiway portraits, and special liveries</p>
+    </div>
+  </div>
+
+  <div class="slide-stage" id="airline-stage">
+
+    <!-- 1: Southwest "Imua One" taxiway -->
+    <div class="portfolio-slide active" id="a-slide-0">
+      <img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Airlines Imua One" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Taxiway · Special Livery</div>
+        <div class="slide-title">Southwest Airlines<br />Boeing 737-800</div>
+        <div class="slide-meta">"Imua One" Hawaiian Heritage Livery &nbsp;·&nbsp; MCO</div>
+      </div>
+    </div>
+
+    <!-- 2: Norse Atlantic 787-9 final approach -->
+    <div class="portfolio-slide" id="a-slide-1">
+      <img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic Boeing 787-9" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Final Approach · Livery Detail</div>
+        <div class="slide-title">Norse Atlantic Airways<br />Boeing 787-9</div>
+        <div class="slide-meta">"Grand Canyon" Special Livery &nbsp;·&nbsp; Golden Hour Approach</div>
+      </div>
+    </div>
+
+    <!-- 3: Spirit A320neo landing -->
+    <div class="portfolio-slide" id="a-slide-2">
+      <img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit Airlines Airbus A320neo" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Landing Approach</div>
+        <div class="slide-title">Spirit Airlines<br />Airbus A320neo</div>
+        <div class="slide-meta">Final Approach Sequence &nbsp;·&nbsp; Golden Hour</div>
+      </div>
+    </div>
+
+    <!-- 4: American A321 landing over palm -->
+    <div class="portfolio-slide" id="a-slide-3">
+      <img src="Airline Portfolio/IMG_4075.JPG" alt="American Airlines Airbus A321" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Landing Approach</div>
+        <div class="slide-title">American Airlines<br />Airbus A321</div>
+        <div class="slide-meta">Over Palm Tree Foreground &nbsp;·&nbsp; Golden Hour</div>
+      </div>
+    </div>
+
+    <!-- 5: Delta A321 "Thank You" taxiway -->
+    <div class="portfolio-slide" id="a-slide-4">
+      <img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Air Lines Thank You livery A321" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Taxiway · Special Livery</div>
+        <div class="slide-title">Delta Air Lines<br />Airbus A321</div>
+        <div class="slide-meta">"Thank You" Special Livery &nbsp;·&nbsp; Dusk Taxiway</div>
+      </div>
+    </div>
+
+    <!-- 6: Delta A350-900 storm backdrop -->
+    <div class="portfolio-slide" id="a-slide-5">
+      <img src="Airline Portfolio/IMG_5618.JPG" alt="Delta Air Lines Airbus A350-900" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Taxiway</div>
+        <div class="slide-title">Delta Air Lines<br />Airbus A350-900</div>
+        <div class="slide-meta">Dramatic Storm Backdrop &nbsp;·&nbsp; Wide-Body Ramp</div>
+      </div>
+    </div>
+
+    <!-- 7: Frontier A321neo "America's Green" takeoff -->
+    <div class="portfolio-slide" id="a-slide-6">
+      <img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier Airlines America's Green A321neo" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Takeoff · Special Livery</div>
+        <div class="slide-title">Frontier Airlines<br />Airbus A321neo</div>
+        <div class="slide-meta">"America's Green" Eco-Livery &nbsp;·&nbsp; Climbout</div>
+      </div>
+    </div>
+
+    <!-- 8: Frontier A320 ramp/gate MCO tower -->
+    <div class="portfolio-slide" id="a-slide-7">
+      <img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier Airlines Airbus A320 ramp gate" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Ramp / Gate Shot</div>
+        <div class="slide-title">Frontier Airlines<br />Airbus A320</div>
+        <div class="slide-meta">MCO ATC Tower &nbsp;·&nbsp; Golden Hour Ramp</div>
+      </div>
+    </div>
+
+    <!-- 9: United 737-900 takeoff -->
+    <div class="portfolio-slide" id="a-slide-8">
+      <img src="Airline Portfolio/IMG_6919.JPG" alt="United Airlines Boeing 737-900 takeoff" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Takeoff</div>
+        <div class="slide-title">United Airlines<br />Boeing 737-900</div>
+        <div class="slide-meta">Wheels-Up Departure &nbsp;·&nbsp; Golden Hour</div>
+      </div>
+    </div>
+
+    <!-- 10: Southwest 737-700 departure MCO tower -->
+    <div class="portfolio-slide" id="a-slide-9">
+      <img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest Airlines Boeing 737-700 departure" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Takeoff / Departure</div>
+        <div class="slide-title">Southwest Airlines<br />Boeing 737-700</div>
+        <div class="slide-meta">MCO ATC Tower &nbsp;·&nbsp; Golden Hour Departure</div>
+      </div>
+    </div>
+
+    <!-- 11: JetBlue A320 "Even More Blue" takeoff -->
+    <div class="portfolio-slide" id="a-slide-10">
+      <img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Airways Even More Blue A320" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Takeoff · Special Livery</div>
+        <div class="slide-title">JetBlue Airways<br />Airbus A320</div>
+        <div class="slide-meta">"Even More Blue" Special Livery &nbsp;·&nbsp; Climbout</div>
+      </div>
+    </div>
+
+    <!-- 12: Spirit A320 heritage livery landing -->
+    <div class="portfolio-slide" id="a-slide-11">
+      <img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Airlines Airbus A320 heritage livery landing" />
+      <div class="slide-overlay"></div>
+      <div class="slide-info">
+        <div class="slide-cat">Landing / Runway Roll</div>
+        <div class="slide-title">Spirit Airlines<br />Airbus A320</div>
+        <div class="slide-meta">Heritage Livery &nbsp;·&nbsp; Panning Shot &nbsp;·&nbsp; Motion Blur</div>
+      </div>
+    </div>
+
+    <button class="slide-arrow arrow-prev" id="airline-prev" aria-label="Previous">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4l-6 6 6 6"/></svg>
+    </button>
+    <button class="slide-arrow arrow-next" id="airline-next" aria-label="Next">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>
+    </button>
+    <div class="slide-counter" id="airline-counter"><span>01</span> / 12</div>
+  </div>
+
+  <div class="thumb-strip" id="airline-thumbs">
+    <div class="thumb-item active" data-ai="0"><img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Imua One" /><div class="thumb-label">Southwest</div></div>
+    <div class="thumb-item" data-ai="1"><img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic 787" /><div class="thumb-label">Norse Atlantic</div></div>
+    <div class="thumb-item" data-ai="2"><img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit A320neo" /><div class="thumb-label">Spirit</div></div>
+    <div class="thumb-item" data-ai="3"><img src="Airline Portfolio/IMG_4075.JPG" alt="American A321" /><div class="thumb-label">American</div></div>
+    <div class="thumb-item" data-ai="4"><img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Thank You" /><div class="thumb-label">Delta</div></div>
+    <div class="thumb-item" data-ai="5"><img src="Airline Portfolio/IMG_5618.JPG" alt="Delta A350" /><div class="thumb-label">Delta</div></div>
+    <div class="thumb-item" data-ai="6"><img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier A321neo" /><div class="thumb-label">Frontier</div></div>
+    <div class="thumb-item" data-ai="7"><img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier A320 Ramp" /><div class="thumb-label">Frontier</div></div>
+    <div class="thumb-item" data-ai="8"><img src="Airline Portfolio/IMG_6919.JPG" alt="United 737-900" /><div class="thumb-label">United</div></div>
+    <div class="thumb-item" data-ai="9"><img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest 737-700" /><div class="thumb-label">Southwest</div></div>
+    <div class="thumb-item" data-ai="10"><img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Even More Blue" /><div class="thumb-label">JetBlue</div></div>
+    <div class="thumb-item" data-ai="11"><img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Heritage" /><div class="thumb-label">Spirit</div></div>
+  </div>
+
+  <div class="slide-dots" id="airline-dots">
+    <div class="slide-dot active" data-ai="0"></div>
+    <div class="slide-dot" data-ai="1"></div>
+    <div class="slide-dot" data-ai="2"></div>
+    <div class="slide-dot" data-ai="3"></div>
+    <div class="slide-dot" data-ai="4"></div>
+    <div class="slide-dot" data-ai="5"></div>
+    <div class="slide-dot" data-ai="6"></div>
+    <div class="slide-dot" data-ai="7"></div>
+    <div class="slide-dot" data-ai="8"></div>
+    <div class="slide-dot" data-ai="9"></div>
+    <div class="slide-dot" data-ai="10"></div>
+    <div class="slide-dot" data-ai="11"></div>
+  </div>
+</section>
+
+<!-- ─── PACKAGES ──────────────────────────────────────── -->
+<section id="packages" class="section">
+  <div style="text-align:center; max-width:600px; margin:0 auto 0;">
+    <div class="section-tag">Pricing</div>
+    <h2 class="section-h2">Packages Built<br /><em>for Every Mission</em></h2>
+    <p class="section-lead" style="margin:16px auto 0;">All packages include fully edited digital files delivered via private gallery link.</p>
+  </div>
+
+  <div class="packages-grid">
+    <!-- Essential -->
+    <div class="pkg-card">
+      <div class="pkg-header">
+        <div class="pkg-badge">Pilots &amp; Owners</div>
+        <div class="pkg-name">Essential</div>
+        <div class="pkg-price"><sup>$</sup>450<span>/session</span></div>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-body">
+        <p class="pkg-desc">The essential package for pilots and aircraft owners who want clean, professional images of their aircraft.</p>
+        <ul class="pkg-features">
+          <li>2-hour shoot</li>
+          <li>20 fully edited digital images</li>
+          <li>Delivered via private gallery link</li>
+          <li>48-hour turnaround</li>
+        </ul>
+        <a href="#cta-strip" class="pkg-btn">Book Essential</a>
+      </div>
+    </div>
+
+    <!-- Professional (featured) -->
+    <div class="pkg-card featured">
+      <div class="pkg-header">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Professional</div>
+        <div class="pkg-price"><sup>$</sup>850<span>/session</span></div>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-body">
+        <p class="pkg-desc">More time, more coverage, more images — everything you need to showcase your aircraft beautifully.</p>
+        <ul class="pkg-features">
+          <li>3 to 4-hour shoot</li>
+          <li>40 fully edited digital images</li>
+          <li>Delivered via private gallery link</li>
+          <li>48-hour turnaround</li>
+        </ul>
+        <a href="#cta-strip" class="pkg-btn featured-btn">Book Professional</a>
+      </div>
+    </div>
+
+    <!-- Brand Day -->
+    <div class="pkg-card">
+      <div class="pkg-header">
+        <div class="pkg-badge">Business</div>
+        <div class="pkg-name">Brand Day</div>
+        <div class="pkg-price"><sup>$</sup>1,500<span>/half day</span></div>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-body">
+        <p class="pkg-desc">Built for businesses — dedicated coverage for flight schools, FBOs, charter companies, and airports.</p>
+        <ul class="pkg-features">
+          <li>Up to 5-hour shoot</li>
+          <li>60 fully edited digital images</li>
+          <li>Social media optimized crops included (vertical + square)</li>
+          <li>5 business day turnaround</li>
+          <li>Delivered via private gallery link</li>
+        </ul>
+        <a href="#cta-strip" class="pkg-btn">Book Brand Day</a>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-top:28px; font-size:13px; color:#9CA3AF;">
+    Need something custom? <a href="#cta-strip" style="color:#1B72BE; font-weight:600; text-decoration:none;">Let's talk →</a>
+  </p>
+</section>
+
+<!-- ─── WHY US ─────────────────────────────────────────── -->
+<section id="why" class="section">
+  <div class="why-grid">
+    <div class="why-img-wrap">
+      <img src="Portfolio/IMG_3943.jpg" alt="Gulfstream jet in hangar" class="why-img" style="height:520px;" />
+      <div class="why-badge">
+        <div class="why-badge-num">MCO<em>·</em>ORL</div>
+        <div class="why-badge-label">Based in Orlando, FL</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-tag">Why OrlandoJets</div>
+      <h2 class="section-h2">Specialists, Not<br /><em>Generalists</em></h2>
+      <p class="section-lead">From aircraft and runways to FBOs, pilot lounges, terminals, and airport facilities — we photograph everything in the aviation world. Our gear and workflow are built specifically for this industry.</p>
+
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10" r="8"/>
+              <circle cx="10" cy="10" r="3"/>
+              <path d="M10 2v3M10 15v3M2 10h3M15 10h3"/>
+            </svg>
+          </div>
+          <div class="why-point-text">
+            <h4>Pure Aviation Focus</h4>
+            <p>Every shoot, every edit, every delivery is built around aviation. From jets on the ramp to lounges in the terminal — we live and breathe this industry, and it shows in every frame.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="16" height="10" rx="1.5"/>
+              <path d="M7 7V5.5C7 4.7 7.7 4 8.5 4H11.5C12.3 4 13 4.7 13 5.5V7"/>
+              <circle cx="10" cy="12" r="3"/>
+              <circle cx="10" cy="12" r="1.5" stroke="#4CB8E0" stroke-width="1.2"/>
+              <rect x="14" y="9" width="3" height="2" rx="0.5"/>
+            </svg>
+          </div>
+          <div class="why-point-text">
+            <h4>Pro-Grade Equipment</h4>
+            <p>Canon R7 with RF-S 18-150mm lens — matched to the subject and lighting conditions for crisp, detailed aviation images every time.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L5.5 11H10L8 18L14.5 9H10Z"/>
+            </svg>
+          </div>
+          <div class="why-point-text">
+            <h4>Marketing-Ready Output</h4>
+            <p>Files are color-graded and exported in specs ready for print, web, and social — no extra editing required on your end.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 18L8.5 10M14 18L11.5 10"/>
+              <line x1="5.5" y1="18" x2="14.5" y2="18"/>
+              <rect x="5" y="5" width="10" height="6" rx="1"/>
+              <path d="M10 5V3"/>
+              <path d="M7.5 3.5Q10 2 12.5 3.5" stroke-width="1.3"/>
+              <path d="M3.5 13Q10 10.5 16.5 13" stroke="#4CB8E0" stroke-width="1.3" stroke-dasharray="1.5,1.5"/>
+            </svg>
+          </div>
+          <div class="why-point-text">
+            <h4>Aviation-First Mindset</h4>
+            <p>We understand ramp protocols, ATC windows, and airport operations — so sessions run efficiently without disrupting your day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA STRIP ──────────────────────────────────────── -->
+<section id="cta-strip">
+  <div class="noise-layer"></div>
+  <div class="cta-inner">
+    <div>
+      <div class="cta-text-tag">Ready to Fly?</div>
+      <h2 class="cta-h2">Let's Capture Your<br /><em>Aviation Story</em></h2>
+      <p class="cta-sub">Reach out to book your session. We'll coordinate timing and locations so all you have to do is show up.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="mailto:Sebastian@orljets.com" class="btn-white">
+        Book Your Shoot
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="tel:+14075727353" class="btn-ghost-w">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h3l1.5 4L5 7.5a8.5 8.5 0 0 0 1.5 1.5A8.5 8.5 0 0 0 8 10.5L9.5 9l4 1.5V13A1 1 0 0 1 12 14 11 11 0 0 1 0 2a1 1 0 0 1 1-1h1z"/></svg>
+        (407) 572-7353
+      </a>
+      <div style="font-size:12px; color:rgba(255,255,255,0.3); padding-left:2px;">Response within 24 hours · Based in Orlando, FL</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="brand_assets/full-logo_19.png" alt="OrlandoJets" style="height:56px; width:auto; display:block;" />
+      <p class="footer-brand-desc">Aviation Photography &amp; Media — based in Orlando, FL. Serving MCO, ORL, SFB, and airports across Florida and beyond.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Commercial Aviation</a></li>
+        <li><a href="#services">Private Jets</a></li>
+        <li><a href="#services">FBOs &amp; Airports</a></li>
+        <li><a href="#services">Air Shows</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#why">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#airline">Airline Portfolio</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#cta-strip">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:Sebastian@orljets.com">Sebastian@orljets.com</a></li>
+        <li><a href="tel:+14075727353">(407) 572-7353</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 OrlandoJets Aviation Photography &amp; Media. All rights reserved.</div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Mobile hamburger
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileMenu = document.getElementById('nav-mobile-menu');
+  let menuOpen = false;
+  const iconOpen  = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+  const iconClose = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+    hamburger.innerHTML = menuOpen ? iconClose : iconOpen;
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamburger.innerHTML = iconOpen;
+    });
+  });
+
+  // ── Portfolio slideshow (fixed: no page scroll on thumb sync)
+  (function() {
+    const slides  = Array.from(document.querySelectorAll('.portfolio-slide'));
+    const thumbs  = Array.from(document.querySelectorAll('#thumb-strip .thumb-item'));
+    const dots    = Array.from(document.querySelectorAll('#slide-dots .slide-dot'));
+    const counter = document.getElementById('slide-counter');
+    const strip   = document.getElementById('thumb-strip');
+    let current = 0;
+    let visibleSlides = slides.map((_, i) => i);
+    let autoTimer;
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function goTo(idx) {
+      const prev = current;
+      current = ((idx % visibleSlides.length) + visibleSlides.length) % visibleSlides.length;
+      slides[visibleSlides[prev]].classList.remove('active');
+      slides[visibleSlides[current]].classList.add('active');
+      thumbs.forEach(t => t.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      const thumbEl = document.querySelector(`#thumb-strip .thumb-item[data-index="${visibleSlides[current]}"]`);
+      const dotEl   = document.querySelector(`#slide-dots .slide-dot[data-index="${visibleSlides[current]}"]`);
+      if (thumbEl) {
+        thumbEl.classList.add('active');
+        // Scroll only the thumb strip, not the page
+        strip.scrollTo({ left: thumbEl.offsetLeft - strip.clientWidth / 2 + thumbEl.clientWidth / 2, behavior: 'smooth' });
+      }
+      if (dotEl) dotEl.classList.add('active');
+      counter.innerHTML = `<span>${pad(current + 1)}</span> / ${pad(visibleSlides.length)}`;
+    }
+
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    document.getElementById('arrow-next').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+    document.getElementById('arrow-prev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+
+    thumbs.forEach(t => t.addEventListener('click', () => {
+      const idx = parseInt(t.dataset.index);
+      const pos = visibleSlides.indexOf(idx);
+      if (pos !== -1) { slides[visibleSlides[current]].classList.remove('active'); current = pos; goTo(current); resetTimer(); }
+    }));
+    dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetTimer(); }));
+
+    // Category filter
+    document.getElementById('pf-filters').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      visibleSlides = [];
+      slides.forEach((s, i) => {
+        const match = cat === 'all' || s.dataset.cat === cat;
+        s.style.display = match ? '' : 'none';
+        if (match) visibleSlides.push(i);
+      });
+      thumbs.forEach(t => {
+        const si = parseInt(t.dataset.index);
+        t.style.display = (cat === 'all' || slides[si].dataset.cat === cat) ? '' : 'none';
+        t.classList.remove('active');
+      });
+      dots.forEach(d => {
+        const si = parseInt(d.dataset.index);
+        d.style.display = (cat === 'all' || slides[si].dataset.cat === cat) ? '' : 'none';
+        d.classList.remove('active');
+      });
+      current = 0;
+      goTo(0);
+      resetTimer();
+    });
+
+    resetTimer();
+  })();
+
+  // ── Airline slideshow
+  (function() {
+    const slides  = Array.from({ length: 12 }, (_, i) => document.getElementById(`a-slide-${i}`));
+    const thumbs  = Array.from(document.querySelectorAll('#airline-thumbs .thumb-item'));
+    const dots    = Array.from(document.querySelectorAll('#airline-dots .slide-dot'));
+    const counter = document.getElementById('airline-counter');
+    const strip   = document.getElementById('airline-thumbs');
+    let current = 0;
+    let autoTimer;
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function goTo(idx) {
+      const prev = current;
+      current = ((idx % slides.length) + slides.length) % slides.length;
+      slides[prev].classList.remove('active');
+      slides[current].classList.add('active');
+      thumbs.forEach(t => t.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      if (thumbs[current]) {
+        thumbs[current].classList.add('active');
+        strip.scrollTo({ left: thumbs[current].offsetLeft - strip.clientWidth / 2 + thumbs[current].clientWidth / 2, behavior: 'smooth' });
+      }
+      if (dots[current]) dots[current].classList.add('active');
+      counter.innerHTML = `<span>${pad(current + 1)}</span> / 12`;
+    }
+
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    document.getElementById('airline-next').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+    document.getElementById('airline-prev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+    thumbs.forEach((t, i) => t.addEventListener('click', () => { goTo(i); resetTimer(); }));
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+    resetTimer();
+  })();
+</script>
+
+</body>
+</html>

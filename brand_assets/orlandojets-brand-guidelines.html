@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrlandoJets — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0D2B6E;
+    --blue:   #1B72BE;
+    --sky:    #4CB8E0;
+    --dark:   #071B47;
+    --mid:    #2060A8;
+    --pale:   #D6EAF8;
+    --white:  #FFFFFF;
+    --off:    #F4F7FB;
+    --text:   #111827;
+    --muted:  #6B7280;
+    --border: #E2E8F0;
+    --font-head: 'Barlow', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); background: #F0F4FA; color: var(--text); }
+
+  /* COVER */
+  .cover {
+    background: var(--navy);
+    color: var(--white);
+    padding: 80px 80px 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 400px; height: 400px;
+    border: 60px solid rgba(75,184,224,0.08);
+    border-radius: 50%;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    right: 60px; top: 60px;
+    width: 220px; height: 220px;
+    border: 40px solid rgba(75,184,224,0.06);
+    border-radius: 50%;
+  }
+  .cover-left { max-width: 500px; }
+  .cover-tag {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 20px;
+  }
+  .cover-title {
+    font-family: var(--font-head);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .cover-title span { color: var(--sky); }
+  .cover-sub {
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.04em;
+  }
+  .cover-logo { z-index: 1; }
+
+  /* PAGE LAYOUT */
+  .page { background: var(--white); max-width: 900px; margin: 0 auto; }
+  .section { padding: 60px 80px; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-label {
+    font-family: var(--font-head);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+  .rule { width: 40px; height: 3px; background: var(--sky); margin-bottom: 24px; }
+
+  /* LOGO SECTION */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .logo-box {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 20px;
+    gap: 12px;
+  }
+  .logo-box.dark { background: var(--navy); border-color: var(--navy); }
+  .logo-box.mid { background: var(--dark); border-color: var(--dark); }
+  .logo-box-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .logo-box.dark .logo-box-label,
+  .logo-box.mid .logo-box-label { color: rgba(255,255,255,0.4); }
+
+  /* CLEARSPACE */
+  .clearspace-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background: var(--off);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .clearspace-inner {
+    position: relative;
+    display: inline-block;
+  }
+  .clearspace-box {
+    border: 1.5px dashed var(--sky);
+    border-radius: 2px;
+    padding: 36px;
+    display: inline-block;
+    position: relative;
+  }
+  .cs-arrow {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+    font-family: var(--font-head);
+  }
+  .cs-arrow.top { top: -22px; left: 50%; transform: translateX(-50%); }
+  .cs-arrow.bottom { bottom: -22px; left: 50%; transform: translateX(-50%); }
+  .cs-arrow.left { left: -44px; top: 50%; transform: translateY(-50%); }
+  .cs-arrow.right { right: -44px; top: 50%; transform: translateY(-50%); }
+
+  /* PALETTE */
+  .palette-row { display: flex; gap: 0; margin-bottom: 24px; border-radius: 8px; overflow: hidden; }
+  .swatch-group { flex: 1; }
+  .swatch-main {
+    height: 90px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 14px;
+  }
+  .swatch-main-label {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .swatch-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .swatch-small {
+    flex: 1;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-family: var(--font-head);
+  }
+  .palette-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 8px; }
+  .palette-card { border-radius: 8px; overflow: hidden; }
+  .pc-color { height: 70px; }
+  .pc-info { padding: 10px 12px; background: var(--off); }
+  .pc-name { font-family: var(--font-head); font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.06em; }
+  .pc-hex { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: monospace; }
+
+  /* TYPOGRAPHY */
+  .type-specimen { margin-bottom: 40px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .type-header { background: var(--off); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+  .type-name { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 0.1em; text-transform: uppercase; }
+  .type-badge { background: var(--navy); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
+  .type-body { padding: 24px 20px; }
+  .type-row { display: flex; align-items: baseline; gap: 24px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta { width: 130px; flex-shrink: 0; }
+  .type-meta-size { font-size: 11px; font-weight: 700; color: var(--muted); font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; }
+  .type-meta-role { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .type-sample { flex: 1; color: var(--navy); }
+
+  /* ICONS */
+  .icon-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 24px; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 12px; background: var(--off); border-radius: 8px; }
+  .icon-item svg { width: 28px; height: 28px; }
+  .icon-label { font-size: 10px; color: var(--muted); text-align: center; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; }
+  .icon-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .icon-rule-box { padding: 20px; border-radius: 8px; }
+  .icon-rule-box.do { background: #EBF8F0; border: 1px solid #A7E5C0; }
+  .icon-rule-box.dont { background: #FEF2F2; border: 1px solid #FECACA; }
+  .icon-rule-title { font-family: var(--font-head); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .icon-rule-box.do .icon-rule-title { color: #166534; }
+  .icon-rule-box.dont .icon-rule-title { color: #991B1B; }
+  .icon-rule-text { font-size: 13px; line-height: 1.6; color: var(--muted); }
+
+  /* BUTTONS */
+  .button-grid { display: flex; flex-direction: column; gap: 32px; }
+  .button-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .button-row-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-family: var(--font-head); width: 100px; flex-shrink: 0; }
+  .btn {
+    font-family: var(--font-head);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: none;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .btn-lg { font-size: 13px; padding: 14px 28px; border-radius: 4px; }
+  .btn-md { font-size: 12px; padding: 11px 22px; border-radius: 4px; }
+  .btn-sm { font-size: 11px; padding: 8px 16px; border-radius: 4px; }
+  .btn-primary { background: var(--navy); color: var(--white); }
+  .btn-secondary { background: var(--blue); color: var(--white); }
+  .btn-accent { background: var(--sky); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+  .btn-outline-blue { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+  .btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
+  .btn-dark-bg { background: var(--navy); padding: 24px 32px; border-radius: 8px; display: flex; align-items: center; gap: 16px; }
+  .btn-on-dark { background: var(--white); color: var(--navy); }
+  .btn-on-dark-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+  .btn-on-dark-accent { background: var(--sky); color: var(--white); }
+  .btn-spec-row { background: var(--off); border-radius: 8px; padding: 20px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .btn-spec { }
+  .btn-spec-key { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; font-family: var(--font-head); }
+  .btn-spec-val { font-size: 13px; color: var(--navy); font-weight: 600; }
+
+  /* DO/DONT LOGO */
+  .logo-usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .usage-box { border-radius: 8px; overflow: hidden; }
+  .usage-header { padding: 10px 16px; font-family: var(--font-head); font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
+  .usage-header.do { background: #EBF8F0; color: #166534; }
+  .usage-header.dont { background: #FEF2F2; color: #991B1B; }
+  .usage-content { padding: 24px; background: var(--off); border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; }
+  .usage-rule { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .usage-rule li { margin-bottom: 4px; margin-left: 16px; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-text { color: rgba(255,255,255,0.35); font-size: 12px; letter-spacing: 0.04em; }
+  .footer-brand { font-family: var(--font-head); font-size: 14px; font-weight: 800; color: var(--white); letter-spacing: 0.06em; }
+  .footer-brand span { color: var(--sky); }
+
+  .divider { width: 100%; height: 1px; background: var(--border); margin: 32px 0; }
+  .note { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
+  .note strong { color: var(--navy); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-left">
+      <div class="cover-tag">Brand Identity System</div>
+      <div class="cover-title">ORLANDO<span>JETS</span></div>
+      <div class="cover-sub">Aviation Photography &amp; Media</div>
+      <div class="cover-meta">Version 1.0 &nbsp;·&nbsp; 2025</div>
+    </div>
+    <div class="cover-logo">
+      <!-- OrlandoJets Logo SVG Recreated -->
+      <svg width="140" height="160" viewBox="0 0 140 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Circle O -->
+        <circle cx="60" cy="80" r="38" stroke="#0D2B6E" stroke-width="12" fill="none"/>
+        <!-- J curve shape -->
+        <path d="M82 48 Q110 60 108 90 Q106 118 72 122" stroke="url(#jgrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <!-- Arrow shaft left -->
+        <line x1="90" y1="28" x2="90" y2="60" stroke="url(#arrowgrad)" stroke-width="4" stroke-linecap="round"/>
+        <!-- Arrow shaft middle -->
+        <line x1="98" y1="22" x2="98" y2="54" stroke="url(#arrowgrad)" stroke-width="4" stroke-linecap="round"/>
+        <!-- Arrow shaft right -->
+        <line x1="106" y1="28" x2="106" y2="60" stroke="url(#arrowgrad)" stroke-width="4" stroke-linecap="round"/>
+        <!-- Arrowhead -->
+        <polygon points="98,8 88,28 108,28" fill="#4CB8E0"/>
+        <defs>
+          <linearGradient id="jgrad" x1="82" y1="48" x2="72" y2="122" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0D2B6E"/>
+            <stop offset="100%" stop-color="#4CB8E0"/>
+          </linearGradient>
+          <linearGradient id="arrowgrad" x1="0" y1="60" x2="0" y2="8" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#1B72BE"/>
+            <stop offset="100%" stop-color="#4CB8E0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 01 LOGO -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <div class="section-title">Logo</div>
+
+    <div class="logo-grid">
+      <!-- Primary -->
+      <div class="logo-box" style="grid-column: 1 / -1;">
+        <svg width="280" height="170" viewBox="0 0 280 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="90" cy="60" r="36" stroke="#0D2B6E" stroke-width="11" fill="none"/>
+          <path d="M116 32 Q140 44 138 70 Q136 94 108 98" stroke="url(#jg1)" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <line x1="124" y1="14" x2="124" y2="38" stroke="url(#ag1)" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="132" y1="8" x2="132" y2="32" stroke="url(#ag1)" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="140" y1="14" x2="140" y2="38" stroke="url(#ag1)" stroke-width="3.5" stroke-linecap="round"/>
+          <polygon points="132,2 122,18 142,18" fill="#4CB8E0"/>
+          <text x="14" y="136" font-family="Barlow, sans-serif" font-weight="800" font-size="32" fill="#0D2B6E" letter-spacing="2">ORLANDO</text>
+          <text x="197" y="136" font-family="Barlow, sans-serif" font-weight="800" font-size="32" fill="#1B72BE" letter-spacing="2">JETS</text>
+          <text x="14" y="158" font-family="Barlow, sans-serif" font-weight="400" font-size="11" fill="#4CB8E0" letter-spacing="5">AVIATION PHOTOGRAPHY &amp; MEDIA</text>
+          <defs>
+            <linearGradient id="jg1" x1="116" y1="32" x2="108" y2="98" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0D2B6E"/>
+              <stop offset="100%" stop-color="#4CB8E0"/>
+            </linearGradient>
+            <linearGradient id="ag1" x1="0" y1="38" x2="0" y2="8" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#1B72BE"/>
+              <stop offset="100%" stop-color="#4CB8E0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-box-label">Primary — Light Background</div>
+      </div>
+
+      <!-- Dark BG Full -->
+      <div class="logo-box dark">
+        <svg width="210" height="130" viewBox="0 0 210 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="44" r="26" stroke="#FFFFFF" stroke-width="8" fill="none"/>
+          <path d="M78 24 Q96 32 94 52 Q92 68 74 72" stroke="url(#jgd)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <line x1="86" y1="10" x2="86" y2="26" stroke="url(#agd)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="92" y1="6" x2="92" y2="22" stroke="url(#agd)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="98" y1="10" x2="98" y2="26" stroke="url(#agd)" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="92,2 84,13 100,13" fill="#4CB8E0"/>
+          <text x="8" y="102" font-family="Barlow, sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" letter-spacing="1">ORLANDO</text>
+          <text x="134" y="102" font-family="Barlow, sans-serif" font-weight="800" font-size="22" fill="#4CB8E0" letter-spacing="1">JETS</text>
+          <text x="8" y="118" font-family="Barlow, sans-serif" font-weight="400" font-size="7.5" fill="rgba(255,255,255,0.5)" letter-spacing="3.5">AVIATION PHOTOGRAPHY &amp; MEDIA</text>
+          <defs>
+            <linearGradient id="jgd" x1="78" y1="24" x2="74" y2="72" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#4CB8E0"/>
+            </linearGradient>
+            <linearGradient id="agd" x1="0" y1="26" x2="0" y2="6" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7EC8E8"/>
+              <stop offset="100%" stop-color="#4CB8E0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-box-label">Reversed — Dark Background</div>
+      </div>
+
+      <!-- Monochrome -->
+      <div class="logo-box" style="background: var(--off);">
+        <svg width="210" height="130" viewBox="0 0 210 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="44" r="26" stroke="#0D2B6E" stroke-width="8" fill="none"/>
+          <path d="M78 24 Q96 32 94 52 Q92 68 74 72" stroke="#0D2B6E" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <line x1="86" y1="10" x2="86" y2="26" stroke="#0D2B6E" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="92" y1="6" x2="92" y2="22" stroke="#0D2B6E" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="98" y1="10" x2="98" y2="26" stroke="#0D2B6E" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="92,2 84,13 100,13" fill="#0D2B6E"/>
+          <text x="8" y="102" font-family="Barlow, sans-serif" font-weight="800" font-size="22" fill="#0D2B6E" letter-spacing="1">ORLANDO</text>
+          <text x="134" y="102" font-family="Barlow, sans-serif" font-weight="800" font-size="22" fill="#0D2B6E" letter-spacing="1">JETS</text>
+          <text x="8" y="118" font-family="Barlow, sans-serif" font-weight="400" font-size="7.5" fill="#0D2B6E" letter-spacing="3.5">AVIATION PHOTOGRAPHY &amp; MEDIA</text>
+        </svg>
+        <div class="logo-box-label">Monochrome — Navy</div>
+      </div>
+    </div>
+
+    <!-- Logo Usage -->
+    <div class="divider"></div>
+    <h3 style="font-family:var(--font-head); font-size:16px; font-weight:700; color:var(--navy); margin-bottom:16px; letter-spacing:0.04em;">Logo Usage Guidelines</h3>
+    <div class="logo-usage-grid">
+      <div class="usage-box">
+        <div class="usage-header do">✓ Do</div>
+        <div class="usage-content">
+          <ul class="usage-rule">
+            <li>Use on white or light-gray backgrounds</li>
+            <li>Use the reversed version on dark or navy backgrounds</li>
+            <li>Maintain the two-color wordmark treatment (navy + blue)</li>
+            <li>Scale proportionally at all sizes</li>
+            <li>Use monochrome version when printing in single color</li>
+          </ul>
+        </div>
+      </div>
+      <div class="usage-box">
+        <div class="usage-header dont">✗ Don't</div>
+        <div class="usage-content">
+          <ul class="usage-rule">
+            <li>Stretch, skew, or distort the logo</li>
+            <li>Change the logo colors outside approved palette</li>
+            <li>Place on busy photographic backgrounds without overlay</li>
+            <li>Recreate the logo in other typefaces</li>
+            <li>Add drop shadows or effects to the logo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 CLEARSPACE -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <div class="section-title">Logo Clearspace</div>
+    <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:32px;">Always maintain a minimum clearspace around the logo equal to the height of the letter "O" in the wordmark (designated as <strong style="color:var(--navy)">1x</strong>). This ensures the logo is never visually crowded by surrounding elements.</p>
+
+    <div class="clearspace-wrap">
+      <div class="clearspace-inner">
+        <div class="clearspace-box">
+          <!-- Top arrow -->
+          <div style="position:absolute; top:-26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
+            <span style="font-size:10px; font-weight:700; color:var(--blue); font-family:var(--font-head);">1x</span>
+            <svg width="1" height="14" style="display:block;"><line x1="0.5" y1="0" x2="0.5" y2="14" stroke="#4CB8E0" stroke-width="1.5"/></svg>
+          </div>
+          <!-- Bottom arrow -->
+          <div style="position:absolute; bottom:-26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
+            <svg width="1" height="14" style="display:block;"><line x1="0.5" y1="0" x2="0.5" y2="14" stroke="#4CB8E0" stroke-width="1.5"/></svg>
+            <span style="font-size:10px; font-weight:700; color:var(--blue); font-family:var(--font-head);">1x</span>
+          </div>
+          <!-- Left arrow -->
+          <div style="position:absolute; left:-40px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:2px;">
+            <span style="font-size:10px; font-weight:700; color:var(--blue); font-family:var(--font-head);">1x</span>
+            <svg width="14" height="1" style="display:block;"><line x1="0" y1="0.5" x2="14" y2="0.5" stroke="#4CB8E0" stroke-width="1.5"/></svg>
+          </div>
+          <!-- Right arrow -->
+          <div style="position:absolute; right:-40px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:2px;">
+            <svg width="14" height="1" style="display:block;"><line x1="0" y1="0.5" x2="14" y2="0.5" stroke="#4CB8E0" stroke-width="1.5"/></svg>
+            <span style="font-size:10px; font-weight:700; color:var(--blue); font-family:var(--font-head);">1x</span>
+          </div>
+          <!-- Logo inside -->
+          <svg width="180" height="110" viewBox="0 0 210 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="44" r="26" stroke="#0D2B6E" stroke-width="8" fill="none"/>
+            <path d="M78 24 Q96 32 94 52 Q92 68 74 72" stroke="url(#jgcs)" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <line x1="86" y1="10" x2="86" y2="26" stroke="url(#agcs)" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="92" y1="6" x2="92" y2="22" stroke="url(#agcs)" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="98" y1="10" x2="98" y2="26" stroke="url(#agcs)" stroke-width="2.5" stroke-linecap="round"/>
+            <polygon points="92,2 84,13 100,13" fill="#4CB8E0"/>
+            <text x="8" y="102" font-family="Barlow, sans-serif" font-weight="800" font-size="22" fill="#0D2B6E" letter-spacing="1">ORLANDO</text>
+            <text x="134" y="102" font-family="Barlow, sans-serif" font-weight="800" font-size="22" fill="#1B72BE" letter-spacing="1">JETS</text>
+            <text x="8" y="118" font-family="Barlow, sans-serif" font-weight="400" font-size="7.5" fill="#4CB8E0" letter-spacing="3.5">AVIATION PHOTOGRAPHY &amp; MEDIA</text>
+            <defs>
+              <linearGradient id="jgcs" x1="78" y1="24" x2="74" y2="72" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0D2B6E"/>
+                <stop offset="100%" stop-color="#4CB8E0"/>
+              </linearGradient>
+              <linearGradient id="agcs" x1="0" y1="26" x2="0" y2="6" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#1B72BE"/>
+                <stop offset="100%" stop-color="#4CB8E0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <p class="note"><strong>Minimum size:</strong> The logo should never appear smaller than 120px wide in digital applications or 1 inch wide in print. Below this threshold, use the icon mark only.</p>
+  </div>
+
+  <!-- 03 BRAND PALETTE -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <div class="section-title">Brand Color Palette</div>
+
+    <!-- Primary palette -->
+    <h3 style="font-family:var(--font-head); font-size:13px; font-weight:700; color:var(--navy); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Primary Colors</h3>
+    <div class="palette-cards" style="grid-template-columns: repeat(3, 1fr); margin-bottom:32px;">
+      <div class="palette-card">
+        <div class="pc-color" style="background:#0D2B6E;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Deep Navy</div>
+          <div class="pc-hex">#0D2B6E</div>
+          <div class="pc-hex" style="margin-top:2px;">Primary Brand</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="pc-color" style="background:#1B72BE;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Brand Blue</div>
+          <div class="pc-hex">#1B72BE</div>
+          <div class="pc-hex" style="margin-top:2px;">Secondary Brand</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="pc-color" style="background:#4CB8E0;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Sky Blue</div>
+          <div class="pc-hex">#4CB8E0</div>
+          <div class="pc-hex" style="margin-top:2px;">Accent</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-head); font-size:13px; font-weight:700; color:var(--navy); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Extended Palette</h3>
+    <div class="palette-cards">
+      <div class="palette-card">
+        <div class="pc-color" style="background:#071B47;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Midnight</div>
+          <div class="pc-hex">#071B47</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="pc-color" style="background:#2060A8;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Mid Blue</div>
+          <div class="pc-hex">#2060A8</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="pc-color" style="background:#D6EAF8;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Ice Blue</div>
+          <div class="pc-hex">#D6EAF8</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="pc-color" style="background:#F4F7FB;"></div>
+        <div class="pc-info">
+          <div class="pc-name">Cloud</div>
+          <div class="pc-hex">#F4F7FB</div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="pc-color" style="background:#FFFFFF; border:1px solid #E2E8F0;"></div>
+        <div class="pc-info">
+          <div class="pc-name">White</div>
+          <div class="pc-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color tints row -->
+    <div style="margin-top: 32px;">
+      <h3 style="font-family:var(--font-head); font-size:13px; font-weight:700; color:var(--navy); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Navy Tint Scale</h3>
+      <div style="display:flex; gap:0; border-radius:8px; overflow:hidden; height:52px;">
+        <div style="flex:1; background:#0D2B6E; display:flex; align-items:flex-end; padding:6px 8px;">
+          <span style="font-size:9px; font-weight:700; color:rgba(255,255,255,0.6); font-family:var(--font-head); text-transform:uppercase; letter-spacing:0.06em;">100%</span>
+        </div>
+        <div style="flex:1; background:#3A5390; display:flex; align-items:flex-end; padding:6px 8px;">
+          <span style="font-size:9px; font-weight:700; color:rgba(255,255,255,0.6); font-family:var(--font-head); text-transform:uppercase; letter-spacing:0.06em;">80%</span>
+        </div>
+        <div style="flex:1; background:#687BAA; display:flex; align-items:flex-end; padding:6px 8px;">
+          <span style="font-size:9px; font-weight:700; color:rgba(255,255,255,0.7); font-family:var(--font-head); text-transform:uppercase; letter-spacing:0.06em;">60%</span>
+        </div>
+        <div style="flex:1; background:#96A4C5; display:flex; align-items:flex-end; padding:6px 8px;">
+          <span style="font-size:9px; font-weight:700; color:#0D2B6E; font-family:var(--font-head); text-transform:uppercase; letter-spacing:0.06em;">40%</span>
+        </div>
+        <div style="flex:1; background:#C5CCEA; display:flex; align-items:flex-end; padding:6px 8px;">
+          <span style="font-size:9px; font-weight:700; color:#0D2B6E; font-family:var(--font-head); text-transform:uppercase; letter-spacing:0.06em;">20%</span>
+        </div>
+        <div style="flex:1; background:#EEF0F7; display:flex; align-items:flex-end; padding:6px 8px;">
+          <span style="font-size:9px; font-weight:700; color:#0D2B6E; font-family:var(--font-head); text-transform:uppercase; letter-spacing:0.06em;">10%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 TYPOGRAPHY -->
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <div class="section-title">Typography</div>
+
+    <!-- Termina -->
+    <div class="type-specimen">
+      <div class="type-header">
+        <div>
+          <div class="type-name">Termina</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Headlines &amp; Display — Primary Typeface</div>
+        </div>
+        <div class="type-badge">Headlines</div>
+      </div>
+      <div class="type-body">
+        <div style="font-family:var(--font-head); font-size:48px; font-weight:800; color:var(--navy); letter-spacing:-0.02em; line-height:1.05; margin-bottom:20px;">Above the Clouds.<br><span style="color:var(--blue);">Below No One.</span></div>
+        <div class="divider"></div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Display / H1</div>
+            <div class="type-meta-role">48–60px · Bold 700</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-head); font-size:36px; font-weight:700; letter-spacing:-0.01em;">Aviation Photography</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">H2</div>
+            <div class="type-meta-role">28–36px · SemiBold 600</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-head); font-size:28px; font-weight:600; letter-spacing:-0.01em;">Commercial &amp; Private Jets</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">H3</div>
+            <div class="type-meta-role">20–24px · SemiBold 600</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-head); font-size:22px; font-weight:600;">Aerial &amp; Ground Shoots</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Label / Cap</div>
+            <div class="type-meta-role">10–12px · Bold 700<br>Uppercase + tracking</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.22em; color:var(--sky);">Aviation Photography &amp; Media</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Button</div>
+            <div class="type-meta-role">12–14px · Bold 700<br>Uppercase + tracking</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-head); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">Book Your Shoot &nbsp;→</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proxima Nova -->
+    <div class="type-specimen">
+      <div class="type-header">
+        <div>
+          <div class="type-name">Proxima Nova</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Body Text &amp; UI — Secondary Typeface</div>
+        </div>
+        <div class="type-badge" style="background:var(--blue);">Body</div>
+      </div>
+      <div class="type-body">
+        <div style="font-family:var(--font-body); font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:20px;">OrlandoJets specializes in capturing the artistry and power of aviation through world-class photography and media. From commercial airliners to private jets, every shot is composed with precision and passion.</div>
+        <div class="divider"></div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Body Large</div>
+            <div class="type-meta-role">17–18px · Regular 400</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-body); font-size:18px; font-weight:400; line-height:1.6;">Capturing jets from the ground up.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Body</div>
+            <div class="type-meta-role">15–16px · Regular 400</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-body); font-size:15px; font-weight:400; line-height:1.7;">Professional aviation photography packages starting at $450 — including edited files and framed prints delivered to you.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Body Bold</div>
+            <div class="type-meta-role">15–16px · SemiBold 600</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-body); font-size:15px; font-weight:600;">Orlando International Airport · MCO</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-size">Caption</div>
+            <div class="type-meta-role">12–13px · Regular 400</div>
+          </div>
+          <div class="type-sample" style="font-family:var(--font-body); font-size:12px; color:var(--muted);">Canon EOS R5 · 100–500mm telephoto · Runway 35L, MCO — 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><strong>Note:</strong> Termina is available via Fontspring and Adobe Fonts. Proxima Nova is available via Adobe Fonts and Fontspring. For web, embed via their respective CDN or self-host for performance.</div>
+  </div>
+
+  <!-- 05 ICONOGRAPHY -->
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <div class="section-title">Iconography Style</div>
+    <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:28px;">Icons should be <strong style="color:var(--navy);">outline style</strong> with consistent 1.5–2px stroke weight. Rounded line caps and joins. Avoid filled or flat icon sets — the open, airy outline style reinforces the aviation and premium feel of the brand.</p>
+
+    <div class="icon-grid">
+      <!-- Camera -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="8" width="22" height="16" rx="2.5"/>
+          <circle cx="14" cy="16" r="4.5"/>
+          <path d="M10 8l2-4h4l2 4"/>
+          <circle cx="21" cy="11.5" r="1" fill="#0D2B6E" stroke="none"/>
+        </svg>
+        <div class="icon-label">Camera</div>
+      </div>
+      <!-- Plane -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 14l3-2 4 2 9-9 2 1-7 8 4 4-2 2-4-3-1 4-2-1 1-4-4-1-1-2 4-2"/>
+        </svg>
+        <div class="icon-label">Aircraft</div>
+      </div>
+      <!-- Image -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="22" height="18" rx="2"/>
+          <circle cx="10" cy="11" r="2.5"/>
+          <path d="M3 19l6-5 5 5 4-4 7 5"/>
+        </svg>
+        <div class="icon-label">Gallery</div>
+      </div>
+      <!-- Location -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 3a7 7 0 0 1 7 7c0 5-7 15-7 15S7 15 7 10a7 7 0 0 1 7-7z"/>
+          <circle cx="14" cy="10" r="2.5"/>
+        </svg>
+        <div class="icon-label">Location</div>
+      </div>
+      <!-- Star -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="14,4 17,11 25,11 19,16 21,24 14,19 7,24 9,16 3,11 11,11"/>
+        </svg>
+        <div class="icon-label">Premium</div>
+      </div>
+      <!-- Package -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 3l10 5v12l-10 5L4 20V8z"/>
+          <path d="M14 3v17M4 8l10 5 10-5M9 5.5L19 10.5"/>
+        </svg>
+        <div class="icon-label">Package</div>
+      </div>
+      <!-- Download -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 4v14M9 13l5 5 5-5"/>
+          <path d="M4 20v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2"/>
+        </svg>
+        <div class="icon-label">Download</div>
+      </div>
+      <!-- Video -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="7" width="16" height="14" rx="2"/>
+          <path d="M19 11l6-3v12l-6-3V11z"/>
+        </svg>
+        <div class="icon-label">Video</div>
+      </div>
+      <!-- Calendar -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="22" height="20" rx="2"/>
+          <path d="M19 3v4M9 3v4M3 11h22"/>
+        </svg>
+        <div class="icon-label">Schedule</div>
+      </div>
+      <!-- Instagram/Social -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="20" height="20" rx="5"/>
+          <circle cx="14" cy="14" r="5"/>
+          <circle cx="20" cy="8" r="1" fill="#0D2B6E" stroke="none"/>
+        </svg>
+        <div class="icon-label">Social</div>
+      </div>
+      <!-- Print / Frame -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="5" width="18" height="18" rx="1.5"/>
+          <rect x="9" y="9" width="10" height="10" rx="1"/>
+        </svg>
+        <div class="icon-label">Print</div>
+      </div>
+      <!-- Compass -->
+      <div class="icon-item">
+        <svg viewBox="0 0 28 28" fill="none" stroke="#0D2B6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="14" r="11"/>
+          <circle cx="14" cy="14" r="2"/>
+          <path d="M14 3v3M14 22v3M3 14h3M22 14h3"/>
+        </svg>
+        <div class="icon-label">Navigate</div>
+      </div>
+    </div>
+
+    <div class="icon-rules">
+      <div class="icon-rule-box do">
+        <div class="icon-rule-title">✓ Do</div>
+        <div class="icon-rule-text">Use outline-style icons with consistent 1.5–2px stroke weight. Keep all icons from the same family for visual cohesion. Use brand navy (#0D2B6E) as the primary icon color, or sky blue (#4CB8E0) for accent icons.</div>
+      </div>
+      <div class="icon-rule-box dont">
+        <div class="icon-rule-title">✗ Don't</div>
+        <div class="icon-rule-text">Mix outline and filled icon styles. Use overly detailed or decorative icons that don't match the brand's clean, professional tone. Avoid icons with drop shadows, multi-color fills, or gradients.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 BUTTONS -->
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <div class="section-title">Button Styles</div>
+
+    <div class="button-grid">
+      <!-- Primary buttons -->
+      <div>
+        <div style="font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-bottom:16px;">Primary Actions</div>
+        <div class="button-row">
+          <button class="btn btn-primary btn-lg">Book a Shoot</button>
+          <button class="btn btn-primary btn-md">Book a Shoot</button>
+          <button class="btn btn-primary btn-sm">Book a Shoot</button>
+        </div>
+        <div style="font-family:var(--font-head); font-size:10px; color:var(--muted); margin-top:12px; letter-spacing:0.04em;">Background: #0D2B6E &nbsp;·&nbsp; Text: #FFFFFF &nbsp;·&nbsp; Font: Termina Bold, uppercase &nbsp;·&nbsp; Radius: 4px</div>
+      </div>
+
+      <!-- Secondary -->
+      <div>
+        <div style="font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-bottom:16px;">Secondary Actions</div>
+        <div class="button-row">
+          <button class="btn btn-secondary btn-lg">View Gallery</button>
+          <button class="btn btn-secondary btn-md">View Gallery</button>
+          <button class="btn btn-secondary btn-sm">View Gallery</button>
+        </div>
+        <div style="font-family:var(--font-head); font-size:10px; color:var(--muted); margin-top:12px; letter-spacing:0.04em;">Background: #1B72BE &nbsp;·&nbsp; Text: #FFFFFF &nbsp;·&nbsp; Font: Termina Bold, uppercase &nbsp;·&nbsp; Radius: 4px</div>
+      </div>
+
+      <!-- Accent -->
+      <div>
+        <div style="font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-bottom:16px;">Accent</div>
+        <div class="button-row">
+          <button class="btn btn-accent btn-lg">Our Packages</button>
+          <button class="btn btn-accent btn-md">Our Packages</button>
+          <button class="btn btn-accent btn-sm">Our Packages</button>
+        </div>
+        <div style="font-family:var(--font-head); font-size:10px; color:var(--muted); margin-top:12px; letter-spacing:0.04em;">Background: #4CB8E0 &nbsp;·&nbsp; Text: #FFFFFF &nbsp;·&nbsp; Use sparingly for CTAs that need maximum attention</div>
+      </div>
+
+      <!-- Outline -->
+      <div>
+        <div style="font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-bottom:16px;">Outline Buttons</div>
+        <div class="button-row">
+          <button class="btn btn-outline btn-md">Contact Us</button>
+          <button class="btn btn-outline-blue btn-md">Learn More</button>
+          <button class="btn btn-ghost btn-md">See All Work</button>
+        </div>
+        <div style="font-family:var(--font-head); font-size:10px; color:var(--muted); margin-top:12px; letter-spacing:0.04em;">Use for tertiary actions or when layered over light content. Border: 2px solid.</div>
+      </div>
+
+      <!-- On Dark -->
+      <div>
+        <div style="font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-bottom:16px;">On Dark Backgrounds</div>
+        <div class="btn-dark-bg">
+          <button class="btn btn-on-dark btn-md">Book Now</button>
+          <button class="btn btn-on-dark-outline btn-md">View Gallery</button>
+          <button class="btn btn-on-dark-accent btn-md">Our Work</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button anatomy -->
+    <div style="margin-top:40px;">
+      <h3 style="font-family:var(--font-head); font-size:13px; font-weight:700; color:var(--navy); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Button Specifications</h3>
+      <div class="btn-spec-row">
+        <div class="btn-spec">
+          <div class="btn-spec-key">Large (LG)</div>
+          <div class="btn-spec-val">14px H / 28px V</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Hero CTAs only</div>
+        </div>
+        <div class="btn-spec">
+          <div class="btn-spec-key">Medium (MD)</div>
+          <div class="btn-spec-val">11px H / 22px V</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Default size</div>
+        </div>
+        <div class="btn-spec">
+          <div class="btn-spec-key">Small (SM)</div>
+          <div class="btn-spec-val">8px H / 16px V</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Cards &amp; inline</div>
+        </div>
+        <div class="btn-spec">
+          <div class="btn-spec-key">Border Radius</div>
+          <div class="btn-spec-val">4px</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Consistent across all</div>
+        </div>
+        <div class="btn-spec">
+          <div class="btn-spec-key">Font</div>
+          <div class="btn-spec-val">Termina 700</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">All caps + tracking</div>
+        </div>
+        <div class="btn-spec">
+          <div class="btn-spec-key">Hover State</div>
+          <div class="btn-spec-val">10% darker fill</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:2px;">Smooth 150ms ease</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>
+      <div class="footer-brand">ORLANDO<span>JETS</span></div>
+      <div class="footer-text" style="margin-top:4px;">Aviation Photography &amp; Media</div>
+    </div>
+    <div class="footer-text">Brand Guidelines v1.0 &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; orlandojets.com</div>
+  </div>
+
+</div>
+</body>
+</html>
