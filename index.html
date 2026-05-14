@@ -402,7 +402,7 @@
     .why-badge-label {
       font-family: 'Barlow', sans-serif; font-size: 10px; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5); margin-top: 4px;
+      color: rgba(255,255,255,0.7); margin-top: 0;
     }
     .why-points { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
     .why-point { display: flex; gap: 20px; }
@@ -675,7 +675,7 @@
       /* Why Us */
       .why-grid { grid-template-columns: 1fr; gap: 48px; }
       .why-img-wrap { padding-bottom: 28px; }
-      .why-img { object-position: 24% center; }
+      .why-img { height: auto !important; object-fit: fill; object-position: unset; }
       .why-badge { right: 0; bottom: 0; padding: 14px 20px; }
       .why-badge-num { font-size: 26px; }
 
@@ -1444,8 +1444,7 @@
     <div class="why-img-wrap">
       <img src="Portfolio/IMG_3943.jpg" alt="Gulfstream jet in hangar" class="why-img" style="height:520px;" />
       <div class="why-badge">
-        <div class="why-badge-num">MCO<em>·</em>ORL</div>
-        <div class="why-badge-label">Based in Orlando, FL</div>
+        <div class="why-badge-label">Based in Orlando, FL since 2019</div>
       </div>
     </div>
 
