@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OrlandoJets — Aviation Photography & Media</title>
+  <link rel="preload" as="image" href="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -297,6 +298,7 @@
     .g2 { grid-column: span 4; height: 340px; }
     .g3 { grid-column: span 3; height: 340px; }
     .g4 { grid-column: span 3; height: 260px; }
+    .g-airline { grid-column: span 6; height: 220px; }
     .g5 { grid-column: span 5; height: 260px; }
     .g6 { grid-column: span 4; height: 260px; }
     .view-all {
@@ -593,6 +595,10 @@
     /* ─── AIRLINE PORTFOLIO ───────────────────────────── */
     #airline { background: #0D2B6E; padding: 100px 0 80px; }
     .airline-header { padding: 0 80px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: flex-end; }
+    /* Lighter overlay so airline images remain clearly visible */
+    #airline-stage .slide-overlay {
+      background: linear-gradient(to right, rgba(7,27,71,0.72) 0%, rgba(7,27,71,0.38) 40%, rgba(7,27,71,0.08) 65%, transparent 100%);
+    }
 
     /* ─── NOISE LAYER ─────────────────────────────────── */
     .noise-layer {
@@ -643,6 +649,7 @@
       .g4 { grid-column: span 1; height: 160px; }
       .g5 { grid-column: span 1; height: 160px; }
       .g6 { grid-column: 1 / -1; height: 180px; }
+      .g-airline { grid-column: 1 / -1; height: 200px; }
 
       /* Portfolio slideshow */
       #portfolio { padding: 64px 0 48px; }
@@ -774,15 +781,15 @@
   <div class="hero-stats">
     <div class="stat-item">
       <div class="stat-num">500<span>+</span></div>
-      <div class="stat-label">Shoots Completed</div>
+      <div class="stat-label">Edits Completed</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">40<span>+</span></div>
+      <div class="stat-num">10<span>+</span></div>
       <div class="stat-label">Airports Covered</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">12<span>K+</span></div>
-      <div class="stat-label">Images Delivered</div>
+      <div class="stat-num">50<span>K+</span></div>
+      <div class="stat-label">Aviation Images Taken</div>
     </div>
   </div>
 </section>
@@ -796,15 +803,24 @@
   <div class="service-grid">
     <div class="service-card">
       <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 24Q3 22 6 21.5L34 21Q42 21 45 23.5Q42 26 34 27L6 27Q3 26 3 24Z"/>
-        <path d="M45 23.5Q47 23.5 47 24Q47 24.5 45 24.5"/>
-        <path d="M20 21.5L4 12L6.5 11.5L22 21.5"/>
-        <path d="M20 27L4 36L6.5 36.5L22 27"/>
-        <path d="M9 30Q8.5 33.5 14 33.5Q14 30 9 30Z" stroke="#4CB8E0" stroke-width="1.5"/>
-        <path d="M15 30.5Q14.5 33.5 19.5 33.5Q19.5 30.5 15 30.5Z" stroke="#4CB8E0" stroke-width="1.3"/>
-        <path d="M5 21.5L2 13L5 13L7.5 21.5"/>
-        <path d="M4.5 23L0 20.5L0 23"/>
-        <path d="M4.5 25L0 27.5L0 25"/>
+        <!-- Fuselage (wide-body commercial) -->
+        <path d="M5 23 C5 21 9 20 14 20 L36 20 C41 20 44 21.5 44 23 C44 24.5 41 26 36 26 L14 26 C9 26 5 25 5 23Z"/>
+        <!-- Nose -->
+        <path d="M5 23 L2 23"/>
+        <!-- Main wings (under-wing engines = commercial) -->
+        <path d="M21 20 L6 13 L11 12 L23 20"/>
+        <path d="M21 26 L6 33 L11 34 L23 26"/>
+        <!-- Under-wing engine pods -->
+        <path d="M12 26 L10 30 L17 30 L16 26" stroke="#4CB8E0" stroke-width="1.5"/>
+        <!-- Vertical tail fin -->
+        <path d="M37 20 L35 14 L38 14 L39 20"/>
+        <!-- Horizontal stabilizers -->
+        <path d="M40 21 L45 19 L45 21"/>
+        <path d="M40 25 L45 27 L45 25"/>
+        <!-- Window row -->
+        <circle cx="24" cy="23" r="0.9" fill="#0D2B6E" stroke="none"/>
+        <circle cx="29" cy="23" r="0.9" fill="#0D2B6E" stroke="none"/>
+        <circle cx="34" cy="23" r="0.9" fill="#0D2B6E" stroke="none"/>
       </svg>
       <div class="service-title">Commercial Aviation</div>
       <p class="service-desc">Full editorial packages for commercial airliners — departure sequences, gate approaches, runway rolls, and livery detail shots that tell a carrier's visual story.</p>
@@ -812,15 +828,21 @@
 
     <div class="service-card">
       <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 24Q2 22.5 5 22L38 21.5Q44 21.5 46 23.5Q44 25.5 38 26L5 26.5Q2 25.5 2 24Z"/>
-        <path d="M46 23.5Q48 23.5 48 24Q48 24.5 46 24.5"/>
-        <path d="M16 22.5L2 15L4.5 14L18 22.5"/>
-        <path d="M16 25.5L2 33.5L4.5 34.5L18 25.5"/>
-        <path d="M2 15L0 10"/>
-        <path d="M2 33.5L0 38.5"/>
-        <path d="M37 21.5L34 11.5L37 11.5L39.5 21.5"/>
-        <path d="M39 23.5L45 20.5L45 23.5"/>
-        <path d="M35 22.5L35 26Q38 27 41 26L41 22.5Q38 21.5 35 22.5Z" stroke="#4CB8E0" stroke-width="1.5"/>
+        <!-- Slim elongated fuselage (private jet profile) -->
+        <path d="M2 24 L8 22 L34 22 C40 22 46 23.5 46 24 C46 24.5 40 26 34 26 L8 26 Z"/>
+        <!-- Pointed nose -->
+        <path d="M2 24 L0 24"/>
+        <!-- Swept wings (higher sweep angle than commercial) -->
+        <path d="M23 22 L8 14 L13 13 L25 22"/>
+        <path d="M23 26 L8 34 L13 35 L25 26"/>
+        <!-- Tail-mounted engine pods (key private jet identifier) -->
+        <path d="M37 22 L34 18 L39 17.5 L40 22" stroke="#4CB8E0" stroke-width="1.5"/>
+        <path d="M37 26 L34 30 L39 30.5 L40 26" stroke="#4CB8E0" stroke-width="1.5"/>
+        <!-- Taller vertical tail fin -->
+        <path d="M37 22 L35 13 L38 13 L40 22"/>
+        <!-- Horizontal stabilizers -->
+        <path d="M41 23 L46 21 L46 23"/>
+        <path d="M41 25 L46 27 L46 25"/>
       </svg>
       <div class="service-title">Private Jets &amp; Charter</div>
       <p class="service-desc">Luxury aircraft portraiture for operators, brokers, and owners. Exterior beauty shots, ramp sessions, and marketing-ready image delivery.</p>
@@ -828,14 +850,22 @@
 
     <div class="service-card">
       <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="4" y="28" width="40" height="14" rx="2"/>
-        <path d="M8 28V20Q8 18 10 18L38 18Q40 18 40 20V28"/>
-        <path d="M16 18V12Q16 10 18 10H30Q32 10 32 12V18"/>
-        <path d="M24 10V6"/>
-        <line x1="4" y1="35" x2="44" y2="35" stroke-width="1.4"/>
-        <rect x="10" y="30" width="6" height="3" rx="0.5" stroke="#4CB8E0" stroke-width="1.5"/>
-        <rect x="21" y="30" width="6" height="3" rx="0.5" stroke="#4CB8E0" stroke-width="1.5"/>
-        <rect x="32" y="30" width="6" height="3" rx="0.5" stroke="#4CB8E0" stroke-width="1.5"/>
+        <!-- Ground line -->
+        <line x1="2" y1="40" x2="46" y2="40" stroke-width="1.5"/>
+        <!-- Terminal building body -->
+        <rect x="5" y="26" width="38" height="14" rx="2"/>
+        <!-- Control tower shaft -->
+        <rect x="21" y="12" width="6" height="14" rx="1"/>
+        <!-- Tower cab (glazed, in sky blue) -->
+        <rect x="18" y="8" width="12" height="5" rx="1.5" stroke="#4CB8E0" stroke-width="1.6"/>
+        <!-- Antenna -->
+        <line x1="24" y1="8" x2="24" y2="5.5" stroke-width="1.5"/>
+        <!-- Terminal gate windows -->
+        <rect x="9" y="30" width="5" height="4" rx="0.5" stroke="#4CB8E0" stroke-width="1.4"/>
+        <rect x="21.5" y="30" width="5" height="4" rx="0.5" stroke="#4CB8E0" stroke-width="1.4"/>
+        <rect x="34" y="30" width="5" height="4" rx="0.5" stroke="#4CB8E0" stroke-width="1.4"/>
+        <!-- Jet bridge arm -->
+        <path d="M12 26 L12 21 Q12 19 14 19 L24 19" stroke-width="1.4"/>
       </svg>
       <div class="service-title">FBOs &amp; Airports</div>
       <p class="service-desc">Architectural and facility photography for FBOs, terminals, pilot lounges, hangars, and airport infrastructure — professional imagery built for marketing and real estate.</p>
@@ -843,14 +873,20 @@
 
     <div class="service-card">
       <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="#0D2B6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="4" y="7" width="40" height="34" rx="2.5"/>
-        <rect x="9" y="12" width="30" height="24" rx="1.5" stroke="#4CB8E0" stroke-width="1.5"/>
-        <path d="M9 28Q17 23.5 28 27Q33 29 39 25" stroke="#0D2B6E" stroke-width="1.3"/>
-        <path d="M17 21L22 19L24.5 20L22 23Z" fill="#0D2B6E" stroke="none"/>
-        <path d="M19 21L16.5 18L18 18L20 21"/>
-        <path d="M19 21.5L16.5 25L18 25L20 21.5"/>
-        <path d="M23.5 20L25.5 18.5L25.5 20" stroke-width="1.3"/>
-        <path d="M16 7Q24 3 32 7"/>
+        <!-- Aerobatic loop trail (dashed arc) -->
+        <path d="M38 32 C44 22 40 8 28 7 C16 6 8 16 12 28 C14 34 20 38 26 36" stroke="#4CB8E0" stroke-width="1.5" stroke-dasharray="3 2" stroke-linecap="round" fill="none"/>
+        <!-- Small aerobatic aircraft fuselage -->
+        <path d="M23 31 L34 31 C36 31 37 33 36 34 C35 35 33 35 31 35 L23 35 C21 35 20 33 21 32 Z"/>
+        <!-- Stubby swept wings -->
+        <path d="M27 31 L20 26 L23 26 L28 31"/>
+        <path d="M27 35 L20 40 L23 40 L28 35"/>
+        <!-- Tail fin -->
+        <path d="M33 31 L31 27 L34 27 L35 31"/>
+        <!-- Horizontal stabilizers -->
+        <path d="M35 32 L39 30 L39 32"/>
+        <path d="M35 34 L39 36 L39 34"/>
+        <!-- Propeller arc at nose -->
+        <path d="M21 32.5 Q19 30 19 33 Q19 36 21 33.5" stroke-width="1.4" fill="none"/>
       </svg>
       <div class="service-title">Air Shows &amp; Events</div>
       <p class="service-desc">High-speed capture of aerobatic performances, formation flying, and warbird displays. We specialize in panning shots that freeze the action beautifully.</p>
@@ -883,24 +919,34 @@
       <div class="gal-label">Private Jet · Ramp Portrait</div>
     </div>
     <div class="gal-item g3">
-      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunset" />
+      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunrise" />
       <div class="gal-overlay"></div>
-      <div class="gal-label">In Flight · Sunset Silhouette</div>
+      <div class="gal-label">In Flight · Sunrise Silhouette</div>
     </div>
     <div class="gal-item g4">
-      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at NetJets facility" />
+      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at the facility" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Private Jet · Hangar</div>
     </div>
     <div class="gal-item g5">
-      <img src="Portfolio/IMG_3011.jpg" alt="Private jet fleet on mountain ramp" />
+      <img src="Airline Portfolio/IMG_5618.JPG" alt="Delta Air Lines Airbus A350-900 storm backdrop" />
       <div class="gal-overlay"></div>
-      <div class="gal-label">Private Jets · Mountain Ramp</div>
+      <div class="gal-label">Commercial · Delta Air Lines</div>
     </div>
     <div class="gal-item g6">
       <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin jet in hangar" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Private Jet · Hangar Interior</div>
+    </div>
+    <div class="gal-item g-airline">
+      <img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Airways Even More Blue A320 climbout" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Commercial · JetBlue Airways</div>
+    </div>
+    <div class="gal-item g-airline">
+      <img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic Boeing 787-9 golden hour approach" />
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Commercial · Norse Atlantic Airways</div>
     </div>
   </div>
 </section>
@@ -933,12 +979,12 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="inflight">
-      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at dusk" />
+      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunrise" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">In Flight</div>
-        <div class="slide-title">Silhouette<br />at Dusk</div>
-        <div class="slide-meta">Air-to-Air &nbsp;·&nbsp; Twin-Engine Piston &nbsp;·&nbsp; Sunset</div>
+        <div class="slide-title">Sunrise<br />Silhouette</div>
+        <div class="slide-meta">Air-to-Air &nbsp;·&nbsp; Twin-Engine Piston &nbsp;·&nbsp; Sunrise</div>
       </div>
     </div>
     <div class="portfolio-slide" data-cat="private">
@@ -951,11 +997,11 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="private">
-      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at NetJets facility" />
+      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at the facility" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Private Jets</div>
-        <div class="slide-title">Gulfstream at the<br />NetJets Facility</div>
+        <div class="slide-title">Gulfstream<br />Facility Session</div>
         <div class="slide-meta">Hangar &amp; Ramp &nbsp;·&nbsp; Fleet Photography &nbsp;·&nbsp; Full Day</div>
       </div>
     </div>
@@ -966,15 +1012,6 @@
         <div class="slide-cat">Private Jets</div>
         <div class="slide-title">Large-Cabin Jet<br />Hangar Portrait</div>
         <div class="slide-meta">Gulfstream &nbsp;·&nbsp; Interior Hangar Session &nbsp;·&nbsp; Clean Light</div>
-      </div>
-    </div>
-    <div class="portfolio-slide" data-cat="private">
-      <img src="Portfolio/IMG_3011.jpg" alt="Private jet fleet on mountain ramp" />
-      <div class="slide-overlay"></div>
-      <div class="slide-info">
-        <div class="slide-cat">Private Jets</div>
-        <div class="slide-title">Fleet on the<br />Mountain Ramp</div>
-        <div class="slide-meta">Multiple Aircraft &nbsp;·&nbsp; Mountain Airport &nbsp;·&nbsp; Wide Ramp</div>
       </div>
     </div>
     <div class="portfolio-slide" data-cat="facilities">
@@ -1011,19 +1048,18 @@
     <button class="slide-arrow arrow-next" id="arrow-next" aria-label="Next slide">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>
     </button>
-    <div class="slide-counter" id="slide-counter"><span>01</span> / 09</div>
+    <div class="slide-counter" id="slide-counter"><span>01</span> / 08</div>
   </div>
 
   <div class="thumb-strip" id="thumb-strip">
     <div class="thumb-item active" data-index="0"><img src="Portfolio/IMG_3661.jpg" alt="Twin-Engine Sunset" /><div class="thumb-label">In Flight</div></div>
-    <div class="thumb-item" data-index="1"><img src="Portfolio/IMG_3671.jpg" alt="Silhouette Dusk" /><div class="thumb-label">In Flight</div></div>
+    <div class="thumb-item" data-index="1"><img src="Portfolio/IMG_3671.jpg" alt="Sunrise Silhouette" /><div class="thumb-label">In Flight</div></div>
     <div class="thumb-item" data-index="2"><img src="Portfolio/IMG_3947.jpg" alt="Gulfstream Ramp" /><div class="thumb-label">Private Jets</div></div>
-    <div class="thumb-item" data-index="3"><img src="Portfolio/IMG_3941.jpg" alt="NetJets Facility" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="3"><img src="Portfolio/IMG_3941.jpg" alt="Gulfstream Facility" /><div class="thumb-label">Private Jets</div></div>
     <div class="thumb-item" data-index="4"><img src="Portfolio/IMG_3943.jpg" alt="Hangar Portrait" /><div class="thumb-label">Private Jets</div></div>
-    <div class="thumb-item" data-index="5"><img src="Portfolio/IMG_3011.jpg" alt="Mountain Ramp" /><div class="thumb-label">Private Jets</div></div>
-    <div class="thumb-item" data-index="6"><img src="Portfolio/IMG_3951.jpg" alt="FBO Lounge" /><div class="thumb-label">Facilities</div></div>
-    <div class="thumb-item" data-index="7"><img src="Portfolio/IMG_3909.jpg" alt="Hangar Exterior" /><div class="thumb-label">Facilities</div></div>
-    <div class="thumb-item" data-index="8"><img src="Portfolio/IMG_3043.jpg" alt="New Hangar" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="5"><img src="Portfolio/IMG_3951.jpg" alt="FBO Lounge" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="6"><img src="Portfolio/IMG_3909.jpg" alt="Hangar Exterior" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="7"><img src="Portfolio/IMG_3043.jpg" alt="New Hangar" /><div class="thumb-label">Facilities</div></div>
   </div>
 
   <div class="slide-dots" id="slide-dots">
@@ -1035,7 +1071,6 @@
     <div class="slide-dot" data-index="5"></div>
     <div class="slide-dot" data-index="6"></div>
     <div class="slide-dot" data-index="7"></div>
-    <div class="slide-dot" data-index="8"></div>
   </div>
 </section>
 
@@ -1055,11 +1090,11 @@
 
     <!-- 1: Southwest "Imua One" taxiway -->
     <div class="portfolio-slide active" id="a-slide-0">
-      <img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Airlines Imua One" />
+      <img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Airlines Imua One" fetchpriority="high" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Taxiway · Special Livery</div>
-        <div class="slide-title">Southwest Airlines<br />Boeing 737-800</div>
+        <div class="slide-title">Southwest Airlines<br />Boeing 737 MAX 8</div>
         <div class="slide-meta">"Imua One" Hawaiian Heritage Livery &nbsp;·&nbsp; MCO</div>
       </div>
     </div>
@@ -1088,11 +1123,11 @@
 
     <!-- 4: American A321 landing over palm -->
     <div class="portfolio-slide" id="a-slide-3">
-      <img src="Airline Portfolio/IMG_4075.JPG" alt="American Airlines Airbus A321" />
+      <img src="Airline Portfolio/IMG_4075.JPG" alt="American Airlines Airbus A321neo" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Landing Approach</div>
-        <div class="slide-title">American Airlines<br />Airbus A321</div>
+        <div class="slide-title">American Airlines<br />Airbus A321neo</div>
         <div class="slide-meta">Over Palm Tree Foreground &nbsp;·&nbsp; Golden Hour</div>
       </div>
     </div>
@@ -1132,22 +1167,22 @@
 
     <!-- 8: Frontier A320 ramp/gate MCO tower -->
     <div class="portfolio-slide" id="a-slide-7">
-      <img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier Airlines Airbus A320 ramp gate" />
+      <img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier Airlines Airbus A321neo ramp gate" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Ramp / Gate Shot</div>
-        <div class="slide-title">Frontier Airlines<br />Airbus A320</div>
+        <div class="slide-title">Frontier Airlines<br />Airbus A321neo</div>
         <div class="slide-meta">MCO ATC Tower &nbsp;·&nbsp; Golden Hour Ramp</div>
       </div>
     </div>
 
     <!-- 9: United 737-900 takeoff -->
     <div class="portfolio-slide" id="a-slide-8">
-      <img src="Airline Portfolio/IMG_6919.JPG" alt="United Airlines Boeing 737-900 takeoff" />
+      <img src="Airline Portfolio/IMG_6919.JPG" alt="United Airlines Boeing 737 MAX 8 takeoff" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Takeoff</div>
-        <div class="slide-title">United Airlines<br />Boeing 737-900</div>
+        <div class="slide-title">United Airlines<br />Boeing 737 MAX 8</div>
         <div class="slide-meta">Wheels-Up Departure &nbsp;·&nbsp; Golden Hour</div>
       </div>
     </div>
@@ -1198,12 +1233,12 @@
     <div class="thumb-item active" data-ai="0"><img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Imua One" /><div class="thumb-label">Southwest</div></div>
     <div class="thumb-item" data-ai="1"><img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic 787" /><div class="thumb-label">Norse Atlantic</div></div>
     <div class="thumb-item" data-ai="2"><img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit A320neo" /><div class="thumb-label">Spirit</div></div>
-    <div class="thumb-item" data-ai="3"><img src="Airline Portfolio/IMG_4075.JPG" alt="American A321" /><div class="thumb-label">American</div></div>
+    <div class="thumb-item" data-ai="3"><img src="Airline Portfolio/IMG_4075.JPG" alt="American A321neo" /><div class="thumb-label">American</div></div>
     <div class="thumb-item" data-ai="4"><img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Thank You" /><div class="thumb-label">Delta</div></div>
     <div class="thumb-item" data-ai="5"><img src="Airline Portfolio/IMG_5618.JPG" alt="Delta A350" /><div class="thumb-label">Delta</div></div>
     <div class="thumb-item" data-ai="6"><img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier A321neo" /><div class="thumb-label">Frontier</div></div>
-    <div class="thumb-item" data-ai="7"><img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier A320 Ramp" /><div class="thumb-label">Frontier</div></div>
-    <div class="thumb-item" data-ai="8"><img src="Airline Portfolio/IMG_6919.JPG" alt="United 737-900" /><div class="thumb-label">United</div></div>
+    <div class="thumb-item" data-ai="7"><img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier A321neo Ramp" /><div class="thumb-label">Frontier</div></div>
+    <div class="thumb-item" data-ai="8"><img src="Airline Portfolio/IMG_6919.JPG" alt="United 737 MAX 8" /><div class="thumb-label">United</div></div>
     <div class="thumb-item" data-ai="9"><img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest 737-700" /><div class="thumb-label">Southwest</div></div>
     <div class="thumb-item" data-ai="10"><img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Even More Blue" /><div class="thumb-label">JetBlue</div></div>
     <div class="thumb-item" data-ai="11"><img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Heritage" /><div class="thumb-label">Spirit</div></div>
@@ -1406,7 +1441,7 @@
   <div class="footer-top">
     <div>
       <img src="brand_assets/full-logo_19.png" alt="OrlandoJets" style="height:56px; width:auto; display:block;" />
-      <p class="footer-brand-desc">Aviation Photography &amp; Media — based in Orlando, FL. Serving MCO, ORL, SFB, and airports across Florida and beyond.</p>
+      <p class="footer-brand-desc">Aviation Photography &amp; Media — based in Orlando, FL. Serving across Florida and beyond.</p>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
@@ -1437,18 +1472,15 @@
   </div>
 
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 OrlandoJets Aviation Photography &amp; Media. All rights reserved.</div>
+    <div class="footer-copy">© 2026 OrlandoJets Aviation Photography &amp; Media. All rights reserved.</div>
     <div class="social-links">
-      <a href="#" class="social-link" aria-label="Instagram">
+      <a href="https://www.instagram.com/orlandojets/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="#" class="social-link" aria-label="X">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="#" class="social-link" aria-label="Facebook">
+      <a href="https://www.facebook.com/orlandojets" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
-      <a href="#" class="social-link" aria-label="YouTube">
+      <a href="https://www.youtube.com/@orlandojets" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
@@ -1483,7 +1515,7 @@
 
   // ── Portfolio slideshow (fixed: no page scroll on thumb sync)
   (function() {
-    const slides  = Array.from(document.querySelectorAll('.portfolio-slide'));
+    const slides  = Array.from(document.querySelectorAll('#slide-stage .portfolio-slide'));
     const thumbs  = Array.from(document.querySelectorAll('#thumb-strip .thumb-item'));
     const dots    = Array.from(document.querySelectorAll('#slide-dots .slide-dot'));
     const counter = document.getElementById('slide-counter');
