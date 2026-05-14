@@ -608,6 +608,106 @@
       background-size: 200px 200px;
     }
 
+    /* ─── INQUIRY FORM ──────────────────────────────────── */
+    #inquiry { background: #F4F7FB; padding: 100px 40px; scroll-margin-top: 80px; }
+    .inq-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 52px;
+      border: 1px solid rgba(13,43,110,0.08);
+      box-shadow: 0 2px 4px rgba(7,27,71,0.04), 0 16px 48px rgba(7,27,71,0.09);
+    }
+    .inq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 24px;
+    }
+    .inq-field { display: flex; flex-direction: column; gap: 7px; }
+    .inq-full { grid-column: 1 / -1; }
+    .inq-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #0D2B6E;
+    }
+    .inq-req { color: #4CB8E0; margin-left: 2px; }
+    .inq-input, .inq-select, .inq-textarea {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 15px; color: #111827;
+      background: #F4F7FB;
+      border: 1.5px solid rgba(13,43,110,0.14);
+      border-radius: 6px;
+      padding: 12px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .inq-input:focus, .inq-select:focus, .inq-textarea:focus {
+      border-color: #1B72BE;
+      box-shadow: 0 0 0 3px rgba(27,114,190,0.11);
+      background: #fff;
+    }
+    .inq-input::placeholder, .inq-textarea::placeholder { color: #9CA3AF; }
+    .inq-textarea { resize: vertical; min-height: 120px; line-height: 1.65; }
+    .inq-select-wrap { position: relative; }
+    .inq-select {
+      appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%230D2B6E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; background-size: 16px;
+    }
+    .inq-checks { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 4px; }
+    .inq-check-item {
+      display: flex; align-items: center; gap: 8px;
+      cursor: pointer; user-select: none;
+    }
+    .inq-check-item input[type="checkbox"] {
+      appearance: none; -webkit-appearance: none;
+      width: 18px; height: 18px; flex-shrink: 0;
+      border: 1.5px solid rgba(13,43,110,0.22);
+      border-radius: 4px; background: #F4F7FB;
+      cursor: pointer; position: relative;
+      transition: background 140ms ease, border-color 140ms ease;
+    }
+    .inq-check-item input[type="checkbox"]:checked { background: #0D2B6E; border-color: #0D2B6E; }
+    .inq-check-item input[type="checkbox"]:checked::after {
+      content: ''; position: absolute; left: 4px; top: 2px;
+      width: 7px; height: 4.5px;
+      border-left: 2px solid #fff; border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+    }
+    .inq-check-item input[type="checkbox"]:focus-visible { box-shadow: 0 0 0 3px rgba(27,114,190,0.2); }
+    .inq-check-item span { font-size: 14px; color: #374151; }
+    .inq-submit {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; margin-top: 32px;
+      font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: #0D2B6E; color: #fff;
+      border: none; border-radius: 4px;
+      padding: 17px 32px; cursor: pointer;
+      transition: background 200ms ease, transform 120ms ease;
+    }
+    .inq-submit:hover { background: #0a2258; transform: translateY(-2px); }
+    .inq-submit:active { transform: translateY(0); }
+    .inq-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    .inq-msg { border-radius: 8px; padding: 18px 22px; font-size: 14px; line-height: 1.6; margin-top: 20px; }
+    .inq-msg-ok { background: rgba(76,184,224,0.1); border: 1px solid rgba(76,184,224,0.28); color: #0D2B6E; }
+    .inq-msg-err { background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.18); color: #991b1b; }
+    .inq-deposit-note { text-align: center; font-size: 12px; color: #9CA3AF; margin-top: 24px; font-style: italic; }
+    .inq-alt {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; margin-top: 36px; flex-wrap: wrap;
+    }
+    .inq-alt-link {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: #0D2B6E; text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .inq-alt-link:hover { color: #1B72BE; }
+    .inq-alt-div { font-size: 12px; color: #9CA3AF; }
+
     /* ─── MOBILE RESPONSIVE ───────────────────────────── */
     @media (max-width: 900px) {
       /* Nav */
@@ -684,6 +784,12 @@
       .cta-inner { flex-direction: column; gap: 36px; align-items: flex-start; }
       .btn-white { width: 100%; justify-content: center; }
       .btn-ghost-w { width: 100%; justify-content: center; }
+
+      /* Inquiry form */
+      #inquiry { padding: 64px 24px; }
+      .inq-card { padding: 32px 20px; }
+      .inq-grid { grid-template-columns: 1fr; }
+      .inq-full { grid-column: span 1; }
 
       /* Footer */
       footer { padding: 48px 24px 32px; }
@@ -794,7 +900,7 @@
     <a href="#airline" class="nav-link">Airlines</a>
     <a href="#packages" class="nav-link">Packages</a>
     <a href="#why" class="nav-link">About</a>
-    <a href="#cta-strip" class="nav-cta">Book a Shoot</a>
+    <a href="#inquiry" class="nav-cta">Book a Shoot</a>
   </div>
   <button id="nav-hamburger" aria-label="Open menu">
     <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -811,7 +917,7 @@
   <a href="#airline" class="nav-mobile-link">Airlines</a>
   <a href="#packages" class="nav-mobile-link">Packages</a>
   <a href="#why" class="nav-mobile-link">About</a>
-  <a href="#cta-strip" class="nav-mobile-cta">Book a Shoot</a>
+  <a href="#inquiry" class="nav-mobile-cta">Book a Shoot</a>
 </div>
 
 <!-- ─── HERO ─────────────────────────────────────────── -->
@@ -1387,7 +1493,7 @@
           <li>Delivered via private gallery link</li>
           <li>48-hour turnaround</li>
         </ul>
-        <a href="#cta-strip" class="pkg-btn">Book Essential</a>
+        <a href="#inquiry" data-package="Essential" class="pkg-btn">Book Essential</a>
       </div>
     </div>
 
@@ -1407,7 +1513,7 @@
           <li>Delivered via private gallery link</li>
           <li>48-hour turnaround</li>
         </ul>
-        <a href="#cta-strip" class="pkg-btn featured-btn">Book Professional</a>
+        <a href="#inquiry" data-package="Professional" class="pkg-btn featured-btn">Book Professional</a>
       </div>
     </div>
 
@@ -1428,13 +1534,13 @@
           <li>5 business day turnaround</li>
           <li>Delivered via private gallery link</li>
         </ul>
-        <a href="#cta-strip" class="pkg-btn">Book Brand Day</a>
+        <a href="#inquiry" data-package="Brand Day" class="pkg-btn">Book Brand Day</a>
       </div>
     </div>
   </div>
 
   <p style="text-align:center; margin-top:28px; font-size:13px; color:#9CA3AF;">
-    Need something custom? <a href="#cta-strip" style="color:#1B72BE; font-weight:600; text-decoration:none;">Let's talk →</a>
+    Need something custom? <a href="#inquiry" style="color:#1B72BE; font-weight:600; text-decoration:none;">Let's talk →</a>
   </p>
 </section>
 
@@ -1524,7 +1630,7 @@
       <p class="cta-sub">Reach out to book your session. We'll coordinate timing and locations so all you have to do is show up.</p>
     </div>
     <div class="cta-actions">
-      <a href="mailto:Sebastian@orljets.com" class="btn-white">
+      <a href="#inquiry" class="btn-white">
         Book Your Shoot
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -1534,6 +1640,118 @@
       </a>
       <div style="font-size:12px; color:rgba(255,255,255,0.3); padding-left:2px;">Response within 24 hours · Based in Orlando, FL</div>
     </div>
+  </div>
+</section>
+
+<!-- ─── INQUIRY FORM ─────────────────────────────────── -->
+<section id="inquiry">
+  <div style="max-width:780px; margin:0 auto;">
+
+    <div style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <div class="section-tag" data-reveal>Book a Shoot</div>
+      <h2 class="section-h2" data-reveal style="--reveal-delay:80ms;">Start Your<br /><em>Inquiry</em></h2>
+      <p class="section-lead" data-reveal style="--reveal-delay:160ms; margin:16px auto 0;">Tell us about your project and we'll reach out to confirm details, availability, and next steps.</p>
+    </div>
+
+    <div class="inq-card" data-reveal style="--reveal-delay:100ms;">
+      <!--
+        FORM EMAIL DELIVERY — Web3Forms (https://web3forms.com)
+        ─────────────────────────────────────────────────────────
+        TODO: Sign up at https://web3forms.com using sebastian@orljets.com
+        TODO: Replace "YOUR_WEB3FORMS_ACCESS_KEY" below with the Access Key
+              you receive after signing up. The key is safe to put here —
+              it is scoped to your verified email address by Web3Forms.
+              No backend, no environment variables, no server needed.
+      -->
+      <form id="inquiry-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="5effac5a-2854-40b5-abc4-2a3c78786a5b" />
+        <input type="hidden" name="subject" id="inq-subject" value="New OrlandoJets Inquiry" />
+        <input type="hidden" name="from_name" value="OrlandoJets Website" />
+        <input type="hidden" name="redirect" value="false" />
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" aria-hidden="true" />
+
+        <div class="inq-grid">
+          <div class="inq-field">
+            <label class="inq-label" for="inq-name">Name <span class="inq-req">*</span></label>
+            <input type="text" id="inq-name" name="Name" class="inq-input" placeholder="Your full name" required autocomplete="name" />
+          </div>
+          <div class="inq-field">
+            <label class="inq-label" for="inq-email">Email <span class="inq-req">*</span></label>
+            <input type="email" id="inq-email" name="Email" class="inq-input" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="inq-field">
+            <label class="inq-label" for="inq-phone">Phone</label>
+            <input type="tel" id="inq-phone" name="Phone" class="inq-input" placeholder="(555) 000-0000" autocomplete="tel" />
+          </div>
+          <div class="inq-field">
+            <label class="inq-label" for="inq-company">Company / Organization</label>
+            <input type="text" id="inq-company" name="Company" class="inq-input" placeholder="Flight school, FBO, charter..." autocomplete="organization" />
+          </div>
+          <div class="inq-field">
+            <label class="inq-label" for="inq-package">Package Interested In</label>
+            <div class="inq-select-wrap">
+              <select id="inq-package" name="Package" class="inq-select inq-input">
+                <option value="Not sure yet">Not sure yet</option>
+                <option value="Essential">Essential — $450</option>
+                <option value="Professional">Professional — $850</option>
+                <option value="Brand Day">Brand Day — $1,500</option>
+              </select>
+            </div>
+          </div>
+          <div class="inq-field">
+            <label class="inq-label" for="inq-date">Preferred Shoot Date</label>
+            <input type="date" id="inq-date" name="Preferred Date" class="inq-input" />
+          </div>
+          <div class="inq-field inq-full">
+            <label class="inq-label" for="inq-aircraft">Aircraft / Location</label>
+            <input type="text" id="inq-aircraft" name="Aircraft and Location" class="inq-input" placeholder="Aircraft type, tail #, airport, FBO name..." />
+          </div>
+          <div class="inq-field inq-full">
+            <label class="inq-label">What do you need photos or media for?</label>
+            <div class="inq-checks">
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Website" /><span>Website</span></label>
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Social media" /><span>Social media</span></label>
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Aircraft listing" /><span>Aircraft listing</span></label>
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Student recruitment" /><span>Student recruitment</span></label>
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Personal use" /><span>Personal use</span></label>
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Prints" /><span>Prints</span></label>
+              <label class="inq-check-item"><input type="checkbox" name="purpose" value="Other" /><span>Other</span></label>
+            </div>
+          </div>
+          <div class="inq-field inq-full">
+            <label class="inq-label" for="inq-message">Message / Project Details</label>
+            <textarea id="inq-message" name="Message" class="inq-textarea" placeholder="Tell us more about your project, timeline, or anything else you'd like us to know..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" id="inq-submit" class="inq-submit">
+          Send Inquiry
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div id="inq-success" class="inq-msg inq-msg-ok" style="display:none;">
+          <strong>Thanks!</strong> Your inquiry has been sent. Sebastian will reach out shortly to confirm details, availability, and next steps.
+        </div>
+        <div id="inq-error" class="inq-msg inq-msg-err" style="display:none;">
+          Something went wrong. Please try again or email Sebastian directly at <a href="mailto:sebastian@orljets.com" style="color:inherit;font-weight:700;">sebastian@orljets.com</a>.
+        </div>
+      </form>
+
+      <p class="inq-deposit-note">A deposit may be required to secure your shoot date after details are confirmed.</p>
+    </div>
+
+    <div class="inq-alt" data-reveal style="--reveal-delay:200ms;">
+      <a href="mailto:Sebastian@orljets.com" class="inq-alt-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 4l7 5 7-5"/></svg>
+        Sebastian@orljets.com
+      </a>
+      <span class="inq-alt-div">or</span>
+      <a href="tel:+14075727353" class="inq-alt-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 2h3l1.5 4-1.5 1.5A9 9 0 0 0 9 11l1.5-1.5 4 1.5v3A1 1 0 0 1 13 15 11 11 0 0 1 1 3a1 1 0 0 1 1-1h.5z"/></svg>
+        (407) 572-7353
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -1561,7 +1779,7 @@
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#airline">Airline Portfolio</a></li>
         <li><a href="#packages">Packages</a></li>
-        <li><a href="#cta-strip">Contact</a></li>
+        <li><a href="#inquiry">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -1746,6 +1964,69 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(el => obs.observe(el));
+  })();
+
+  // ── Inquiry form
+  (function() {
+    const form      = document.getElementById('inquiry-form');
+    const submitBtn = document.getElementById('inq-submit');
+    const successEl = document.getElementById('inq-success');
+    const errorEl   = document.getElementById('inq-error');
+    const pkgSelect = document.getElementById('inq-package');
+    const subjectEl = document.getElementById('inq-subject');
+    const nameEl    = document.getElementById('inq-name');
+
+    // Package button click → pre-select package, then let href="#inquiry" scroll naturally
+    document.querySelectorAll('[data-package]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const pkg = this.dataset.package;
+        if (pkg && pkgSelect) pkgSelect.value = pkg;
+      });
+    });
+
+    // Keep subject line in sync with name field
+    nameEl.addEventListener('input', function() {
+      const name = this.value.trim() || 'Unknown';
+      subjectEl.value = 'New OrlandoJets Inquiry from ' + name;
+    });
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      // Collect checked purpose values into one comma-joined field
+      const purposes = Array.from(form.querySelectorAll('input[name="purpose"]:checked')).map(cb => cb.value);
+
+      const origHTML = submitBtn.innerHTML;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      successEl.style.display = 'none';
+      errorEl.style.display   = 'none';
+
+      try {
+        const data = new FormData(form);
+        // Replace individual checkbox entries with a single readable field
+        const purposeEntries = [...data.entries()].filter(([k]) => k === 'purpose');
+        purposeEntries.forEach(([k]) => data.delete(k));
+        if (purposes.length) data.append('Purpose', purposes.join(', '));
+
+        const res    = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        const result = await res.json();
+
+        if (result.success) {
+          successEl.style.display = 'block';
+          form.reset();
+          subjectEl.value = 'New OrlandoJets Inquiry';
+        } else {
+          errorEl.style.display = 'block';
+        }
+      } catch (_) {
+        errorEl.style.display = 'block';
+      } finally {
+        submitBtn.innerHTML = origHTML;
+        submitBtn.disabled  = false;
+      }
+    });
   })();
 
   // ── Mobile gallery slideshow
