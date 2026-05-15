@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OrlandoJets — Aviation Photography & Media</title>
+  <title>OrlandoJets — Aviation Photography & Media | Orlando, FL</title>
+  <meta name="description" content="OrlandoJets offers professional aviation photography and media production in Orlando, FL — serving airlines, private jets, FBOs, and air shows since 2019." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://orlandojetsphotography.com" />
+  <meta name="author" content="OrlandoJets Photography" />
+  <meta name="theme-color" content="#0D2B6E" />
+  <meta name="geo.region" content="US-FL" />
+  <meta name="geo.placename" content="Orlando, Florida" />
+  <meta name="geo.position" content="28.5383;-81.3792" />
+  <meta name="ICBM" content="28.5383, -81.3792" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Open Graph -->
   <meta property="og:title" content="OrlandoJets — Aviation Photography & Media" />
   <meta property="og:description" content="Professional aviation photography and media based in Orlando, FL since 2019." />
   <meta property="og:image" content="https://orlandojetsphotography.com/og-image.png" />
@@ -12,8 +22,14 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://orlandojetsphotography.com" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OrlandoJets" />
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OrlandoJets — Aviation Photography & Media" />
+  <meta name="twitter:description" content="Professional aviation photography and media based in Orlando, FL since 2019." />
   <meta name="twitter:image" content="https://orlandojetsphotography.com/og-image.png" />
+  <meta name="twitter:site" content="@orlandojets" />
   <link rel="preload" as="image" href="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -893,6 +909,88 @@
       }
     }
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "OrlandoJets",
+        "url": "https://orlandojetsphotography.com"
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://orlandojetsphotography.com/#business",
+        "name": "OrlandoJets Photography",
+        "url": "https://orlandojetsphotography.com",
+        "logo": "https://orlandojetsphotography.com/brand_assets/full-logo_19.png",
+        "image": "https://orlandojetsphotography.com/og-image.png",
+        "description": "Professional aviation photography and media production serving airlines, private jets, FBOs, and air shows in the Orlando, FL area since 2019.",
+        "telephone": "+14075727353",
+        "email": "Sebastian@orljets.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Orlando",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.5383,
+          "longitude": -81.3792
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Orlando", "sameAs": "https://www.wikidata.org/wiki/Q49233" },
+          { "@type": "State", "name": "Florida" }
+        ],
+        "foundingDate": "2019",
+        "priceRange": "$$$",
+        "sameAs": [
+          "https://www.instagram.com/orlandojets/",
+          "https://www.facebook.com/orlandojets",
+          "https://www.youtube.com/@orlandojets"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://orlandojetsphotography.com/#services",
+        "serviceType": "Aviation Photography & Media Production",
+        "provider": { "@id": "https://orlandojetsphotography.com/#business" },
+        "areaServed": "Orlando, FL",
+        "description": "Commercial airline photography, private jet and charter photography, FBO and facility photography, air show coverage, and flight school media.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Aviation Photography Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Essential Package",
+              "description": "Entry-level aviation photography session.",
+              "price": "450",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "name": "Professional Package",
+              "description": "Full aviation photography and media session.",
+              "price": "850",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "name": "Brand Day Package",
+              "description": "Full-day brand photography production for aviation companies.",
+              "price": "1500",
+              "priceCurrency": "USD"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -1071,42 +1169,42 @@
   <!-- Desktop grid -->
   <div class="gallery-grid">
     <div class="gal-item g1" data-reveal style="--reveal-delay:60ms;">
-      <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft golden hour" />
+      <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft golden hour"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">In Flight · Golden Hour</div>
     </div>
     <div class="gal-item g2" data-reveal style="--reveal-delay:120ms;">
-      <img src="Portfolio/IMG_3947.jpg" alt="Gulfstream portrait on the ramp" />
+      <img src="Portfolio/IMG_3947.jpg" alt="Gulfstream portrait on the ramp"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Private Jet · Ramp Portrait</div>
     </div>
     <div class="gal-item g3" data-reveal style="--reveal-delay:180ms;">
-      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunrise" />
+      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunrise"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">In Flight · Sunrise Silhouette</div>
     </div>
     <div class="gal-item g4" data-reveal style="--reveal-delay:60ms;">
-      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at the facility" />
+      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at the facility"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Private Jet · Hangar</div>
     </div>
     <div class="gal-item g5" data-reveal style="--reveal-delay:120ms;">
-      <img src="Airline Portfolio/IMG_5618.JPG" alt="Delta Air Lines Airbus A350-900 storm backdrop" />
+      <img src="Airline Portfolio/IMG_5618.JPG" alt="Delta Air Lines Airbus A350-900 storm backdrop"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Commercial · Delta Air Lines</div>
     </div>
     <div class="gal-item g6" data-reveal style="--reveal-delay:180ms;">
-      <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin jet in hangar" />
+      <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin jet in hangar"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Private Jet · Hangar Interior</div>
     </div>
     <div class="gal-item g-airline" data-reveal style="--reveal-delay:60ms;">
-      <img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Airways Even More Blue A320 climbout" style="object-position: center 35%;" />
+      <img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Airways Even More Blue A320 climbout" style="object-position: center 35%;"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Commercial · JetBlue Airways</div>
     </div>
     <div class="gal-item g-airline" data-reveal style="--reveal-delay:120ms;">
-      <img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic Boeing 787-9 golden hour approach" />
+      <img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic Boeing 787-9 golden hour approach"  loading="lazy" />
       <div class="gal-overlay"></div>
       <div class="gal-label">Commercial · Norse Atlantic Airways</div>
     </div>
@@ -1116,42 +1214,42 @@
   <div class="mob-gallery" id="mob-gallery">
     <div class="mob-gallery-track" id="mob-gallery-track">
       <div class="mob-gallery-slide">
-        <img src="Portfolio/IMG_3661.jpg" alt="In Flight · Golden Hour" />
+        <img src="Portfolio/IMG_3661.jpg" alt="In Flight · Golden Hour"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">In Flight · Golden Hour</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Portfolio/IMG_3947.jpg" alt="Private Jet · Ramp Portrait" />
+        <img src="Portfolio/IMG_3947.jpg" alt="Private Jet · Ramp Portrait"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">Private Jet · Ramp Portrait</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Portfolio/IMG_3671.jpg" alt="In Flight · Sunrise Silhouette" />
+        <img src="Portfolio/IMG_3671.jpg" alt="In Flight · Sunrise Silhouette"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">In Flight · Sunrise Silhouette</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Portfolio/IMG_3941.jpg" alt="Private Jet · Hangar" style="object-position: center 20%;" />
+        <img src="Portfolio/IMG_3941.jpg" alt="Private Jet · Hangar" style="object-position: center 20%;"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">Private Jet · Hangar</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Airline Portfolio/IMG_5618.JPG" alt="Commercial · Delta Air Lines" />
+        <img src="Airline Portfolio/IMG_5618.JPG" alt="Commercial · Delta Air Lines"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">Commercial · Delta Air Lines</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Portfolio/IMG_3943.jpg" alt="Private Jet · Hangar Interior" style="object-position: center 20%;" />
+        <img src="Portfolio/IMG_3943.jpg" alt="Private Jet · Hangar Interior" style="object-position: center 20%;"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">Private Jet · Hangar Interior</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Airline Portfolio/IMG_7272.JPG" alt="Commercial · JetBlue Airways" style="object-position: center 35%;" />
+        <img src="Airline Portfolio/IMG_7272.JPG" alt="Commercial · JetBlue Airways" style="object-position: center 35%;"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">Commercial · JetBlue Airways</div>
       </div>
       <div class="mob-gallery-slide">
-        <img src="Airline Portfolio/IMG_1923.JPG" alt="Commercial · Norse Atlantic" />
+        <img src="Airline Portfolio/IMG_1923.JPG" alt="Commercial · Norse Atlantic"  loading="lazy" />
         <div class="gal-overlay"></div>
         <div class="gal-label">Commercial · Norse Atlantic</div>
       </div>
@@ -1188,7 +1286,7 @@
 
   <div class="slide-stage" id="slide-stage">
     <div class="portfolio-slide active" data-cat="inflight">
-      <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft at golden hour" />
+      <img src="Portfolio/IMG_3661.jpg" alt="Twin-engine aircraft at golden hour"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">In Flight</div>
@@ -1197,7 +1295,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="inflight">
-      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunrise" />
+      <img src="Portfolio/IMG_3671.jpg" alt="Aircraft silhouette at sunrise"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">In Flight</div>
@@ -1206,7 +1304,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="private">
-      <img src="Portfolio/IMG_3947.jpg" alt="Gulfstream nose portrait on ramp" />
+      <img src="Portfolio/IMG_3947.jpg" alt="Gulfstream nose portrait on ramp"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Private Jets</div>
@@ -1215,7 +1313,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="private">
-      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at the facility" />
+      <img src="Portfolio/IMG_3941.jpg" alt="Gulfstream at the facility"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Private Jets</div>
@@ -1224,7 +1322,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="private">
-      <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin Gulfstream in hangar" />
+      <img src="Portfolio/IMG_3943.jpg" alt="Large-cabin Gulfstream in hangar"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Private Jets</div>
@@ -1233,7 +1331,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="facilities">
-      <img src="Portfolio/IMG_3951.jpg" alt="Executive FBO terminal lounge" />
+      <img src="Portfolio/IMG_3951.jpg" alt="Executive FBO terminal lounge"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Aviation Facilities</div>
@@ -1242,7 +1340,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="facilities">
-      <img src="Portfolio/IMG_3909.jpg" alt="Airport hangar exterior" />
+      <img src="Portfolio/IMG_3909.jpg" alt="Airport hangar exterior"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Aviation Facilities</div>
@@ -1251,7 +1349,7 @@
       </div>
     </div>
     <div class="portfolio-slide" data-cat="facilities">
-      <img src="Portfolio/IMG_3043.jpg" alt="New aviation hangar facility" />
+      <img src="Portfolio/IMG_3043.jpg" alt="New aviation hangar facility"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Aviation Facilities</div>
@@ -1270,14 +1368,14 @@
   </div>
 
   <div class="thumb-strip" id="thumb-strip">
-    <div class="thumb-item active" data-index="0"><img src="Portfolio/IMG_3661.jpg" alt="Twin-Engine Sunset" /><div class="thumb-label">In Flight</div></div>
-    <div class="thumb-item" data-index="1"><img src="Portfolio/IMG_3671.jpg" alt="Sunrise Silhouette" /><div class="thumb-label">In Flight</div></div>
-    <div class="thumb-item" data-index="2"><img src="Portfolio/IMG_3947.jpg" alt="Gulfstream Ramp" /><div class="thumb-label">Private Jets</div></div>
-    <div class="thumb-item" data-index="3"><img src="Portfolio/IMG_3941.jpg" alt="Gulfstream Facility" /><div class="thumb-label">Private Jets</div></div>
-    <div class="thumb-item" data-index="4"><img src="Portfolio/IMG_3943.jpg" alt="Hangar Portrait" /><div class="thumb-label">Private Jets</div></div>
-    <div class="thumb-item" data-index="5"><img src="Portfolio/IMG_3951.jpg" alt="FBO Lounge" /><div class="thumb-label">Facilities</div></div>
-    <div class="thumb-item" data-index="6"><img src="Portfolio/IMG_3909.jpg" alt="Hangar Exterior" /><div class="thumb-label">Facilities</div></div>
-    <div class="thumb-item" data-index="7"><img src="Portfolio/IMG_3043.jpg" alt="New Hangar" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item active" data-index="0"><img src="Portfolio/IMG_3661.jpg" alt="Twin-Engine Sunset"  loading="lazy" /><div class="thumb-label">In Flight</div></div>
+    <div class="thumb-item" data-index="1"><img src="Portfolio/IMG_3671.jpg" alt="Sunrise Silhouette"  loading="lazy" /><div class="thumb-label">In Flight</div></div>
+    <div class="thumb-item" data-index="2"><img src="Portfolio/IMG_3947.jpg" alt="Gulfstream Ramp"  loading="lazy" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="3"><img src="Portfolio/IMG_3941.jpg" alt="Gulfstream Facility"  loading="lazy" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="4"><img src="Portfolio/IMG_3943.jpg" alt="Hangar Portrait"  loading="lazy" /><div class="thumb-label">Private Jets</div></div>
+    <div class="thumb-item" data-index="5"><img src="Portfolio/IMG_3951.jpg" alt="FBO Lounge"  loading="lazy" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="6"><img src="Portfolio/IMG_3909.jpg" alt="Hangar Exterior"  loading="lazy" /><div class="thumb-label">Facilities</div></div>
+    <div class="thumb-item" data-index="7"><img src="Portfolio/IMG_3043.jpg" alt="New Hangar"  loading="lazy" /><div class="thumb-label">Facilities</div></div>
   </div>
 
   <div class="slide-dots" id="slide-dots">
@@ -1319,7 +1417,7 @@
 
     <!-- 2: Norse Atlantic 787-9 final approach -->
     <div class="portfolio-slide" id="a-slide-1">
-      <img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic Boeing 787-9" />
+      <img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic Boeing 787-9"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Final Approach · Livery Detail</div>
@@ -1330,7 +1428,7 @@
 
     <!-- 3: Spirit A320neo landing -->
     <div class="portfolio-slide" id="a-slide-2">
-      <img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit Airlines Airbus A320neo" />
+      <img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit Airlines Airbus A320neo"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Landing Approach</div>
@@ -1341,7 +1439,7 @@
 
     <!-- 4: American A321 landing over palm -->
     <div class="portfolio-slide" id="a-slide-3">
-      <img src="Airline Portfolio/IMG_4075.JPG" alt="American Airlines Airbus A321neo" />
+      <img src="Airline Portfolio/IMG_4075.JPG" alt="American Airlines Airbus A321neo"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Landing Approach</div>
@@ -1352,7 +1450,7 @@
 
     <!-- 5: Delta A321 "Thank You" taxiway -->
     <div class="portfolio-slide" id="a-slide-4">
-      <img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Air Lines Thank You livery A321" />
+      <img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Air Lines Thank You livery A321"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Taxiway · Special Livery</div>
@@ -1363,7 +1461,7 @@
 
     <!-- 6: Delta A350-900 storm backdrop -->
     <div class="portfolio-slide" id="a-slide-5">
-      <img src="Airline Portfolio/IMG_5618.JPG" alt="Delta Air Lines Airbus A350-900" />
+      <img src="Airline Portfolio/IMG_5618.JPG" alt="Delta Air Lines Airbus A350-900"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Taxiway</div>
@@ -1374,7 +1472,7 @@
 
     <!-- 7: Frontier A321neo "America's Green" takeoff -->
     <div class="portfolio-slide" id="a-slide-6">
-      <img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier Airlines America's Green A321neo" />
+      <img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier Airlines America's Green A321neo"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Takeoff · Special Livery</div>
@@ -1385,7 +1483,7 @@
 
     <!-- 8: Frontier A320 ramp/gate MCO tower -->
     <div class="portfolio-slide" id="a-slide-7">
-      <img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier Airlines Airbus A321neo ramp gate" />
+      <img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier Airlines Airbus A321neo ramp gate"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Ramp / Gate Shot</div>
@@ -1396,7 +1494,7 @@
 
     <!-- 9: United 737-900 takeoff -->
     <div class="portfolio-slide" id="a-slide-8">
-      <img src="Airline Portfolio/IMG_6919.JPG" alt="United Airlines Boeing 737 MAX 8 takeoff" />
+      <img src="Airline Portfolio/IMG_6919.JPG" alt="United Airlines Boeing 737 MAX 8 takeoff"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Takeoff</div>
@@ -1407,7 +1505,7 @@
 
     <!-- 10: Southwest 737-700 departure MCO tower -->
     <div class="portfolio-slide" id="a-slide-9">
-      <img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest Airlines Boeing 737-700 departure" />
+      <img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest Airlines Boeing 737-700 departure"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Takeoff / Departure</div>
@@ -1418,7 +1516,7 @@
 
     <!-- 11: JetBlue A320 "Even More Blue" takeoff -->
     <div class="portfolio-slide" id="a-slide-10">
-      <img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Airways Even More Blue A320" />
+      <img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Airways Even More Blue A320"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Takeoff · Special Livery</div>
@@ -1429,7 +1527,7 @@
 
     <!-- 12: Spirit A320 heritage livery landing -->
     <div class="portfolio-slide" id="a-slide-11">
-      <img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Airlines Airbus A320 heritage livery landing" />
+      <img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Airlines Airbus A320 heritage livery landing"  loading="lazy" />
       <div class="slide-overlay"></div>
       <div class="slide-info">
         <div class="slide-cat">Landing / Runway Roll</div>
@@ -1448,18 +1546,18 @@
   </div>
 
   <div class="thumb-strip" id="airline-thumbs">
-    <div class="thumb-item active" data-ai="0"><img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Imua One" /><div class="thumb-label">Southwest</div></div>
-    <div class="thumb-item" data-ai="1"><img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic 787" /><div class="thumb-label">Norse Atlantic</div></div>
-    <div class="thumb-item" data-ai="2"><img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit A320neo" /><div class="thumb-label">Spirit</div></div>
-    <div class="thumb-item" data-ai="3"><img src="Airline Portfolio/IMG_4075.JPG" alt="American A321neo" /><div class="thumb-label">American</div></div>
-    <div class="thumb-item" data-ai="4"><img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Thank You" /><div class="thumb-label">Delta</div></div>
-    <div class="thumb-item" data-ai="5"><img src="Airline Portfolio/IMG_5618.JPG" alt="Delta A350" /><div class="thumb-label">Delta</div></div>
-    <div class="thumb-item" data-ai="6"><img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier A321neo" /><div class="thumb-label">Frontier</div></div>
-    <div class="thumb-item" data-ai="7"><img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier A321neo Ramp" /><div class="thumb-label">Frontier</div></div>
-    <div class="thumb-item" data-ai="8"><img src="Airline Portfolio/IMG_6919.JPG" alt="United 737 MAX 8" /><div class="thumb-label">United</div></div>
-    <div class="thumb-item" data-ai="9"><img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest 737-700" /><div class="thumb-label">Southwest</div></div>
-    <div class="thumb-item" data-ai="10"><img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Even More Blue" /><div class="thumb-label">JetBlue</div></div>
-    <div class="thumb-item" data-ai="11"><img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Heritage" /><div class="thumb-label">Spirit</div></div>
+    <div class="thumb-item active" data-ai="0"><img src="Airline Portfolio/7F027D4F-DC69-4E3C-B27E-1BD2FA89733E.JPG" alt="Southwest Imua One"  loading="lazy" /><div class="thumb-label">Southwest</div></div>
+    <div class="thumb-item" data-ai="1"><img src="Airline Portfolio/IMG_1923.JPG" alt="Norse Atlantic 787"  loading="lazy" /><div class="thumb-label">Norse Atlantic</div></div>
+    <div class="thumb-item" data-ai="2"><img src="Airline Portfolio/IMG_4073.JPG" alt="Spirit A320neo"  loading="lazy" /><div class="thumb-label">Spirit</div></div>
+    <div class="thumb-item" data-ai="3"><img src="Airline Portfolio/IMG_4075.JPG" alt="American A321neo"  loading="lazy" /><div class="thumb-label">American</div></div>
+    <div class="thumb-item" data-ai="4"><img src="Airline Portfolio/IMG_4158.JPG" alt="Delta Thank You"  loading="lazy" /><div class="thumb-label">Delta</div></div>
+    <div class="thumb-item" data-ai="5"><img src="Airline Portfolio/IMG_5618.JPG" alt="Delta A350"  loading="lazy" /><div class="thumb-label">Delta</div></div>
+    <div class="thumb-item" data-ai="6"><img src="Airline Portfolio/IMG_6356.JPG" alt="Frontier A321neo"  loading="lazy" /><div class="thumb-label">Frontier</div></div>
+    <div class="thumb-item" data-ai="7"><img src="Airline Portfolio/IMG_6458.JPG" alt="Frontier A321neo Ramp"  loading="lazy" /><div class="thumb-label">Frontier</div></div>
+    <div class="thumb-item" data-ai="8"><img src="Airline Portfolio/IMG_6919.JPG" alt="United 737 MAX 8"  loading="lazy" /><div class="thumb-label">United</div></div>
+    <div class="thumb-item" data-ai="9"><img src="Airline Portfolio/IMG_7054 2.jpg" alt="Southwest 737-700"  loading="lazy" /><div class="thumb-label">Southwest</div></div>
+    <div class="thumb-item" data-ai="10"><img src="Airline Portfolio/IMG_7272.JPG" alt="JetBlue Even More Blue"  loading="lazy" /><div class="thumb-label">JetBlue</div></div>
+    <div class="thumb-item" data-ai="11"><img src="Airline Portfolio/IMG_7394.JPG" alt="Spirit Heritage"  loading="lazy" /><div class="thumb-label">Spirit</div></div>
   </div>
 
   <div class="slide-dots" id="airline-dots">
@@ -1558,7 +1656,7 @@
 <section id="why" class="section">
   <div class="why-grid">
     <div class="why-img-wrap">
-      <img src="Portfolio/IMG_3943.jpg" alt="Gulfstream jet in hangar" class="why-img" style="height:520px;" />
+      <img src="Portfolio/IMG_3943.jpg" alt="Gulfstream jet in hangar" class="why-img" style="height:520px;"  loading="lazy" />
       <div class="why-badge">
         <div class="why-badge-label">Based in Orlando, FL since 2019</div>
       </div>
